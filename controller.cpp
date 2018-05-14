@@ -1,23 +1,30 @@
 #include "controller.h"
 
 Controller::Controller() {
+	//set button array
   buttons.push_back(new Button(4));
   buttons.push_back(new Button(5));
   buttons.push_back(new Button(6));
   memory = new MicroSD();
-  speaker = new Speaker();
+  memory->initSD();//initialize memory
+  //speaker = new Speaker();
+  mode = new Mode();
 }
 
 std::vector<int> Controller::getOperation() {
-  std::vector<int> num;//save pinNumber
+	buttonNumber.clear();//clear array
   for(auto itr : buttons) {
     if(itr->getValue() == HIGH) {
-      num.push_back(itr->getPin());
+      buttonNumber.push_back(itr->getPin());
     }
   }
-  return num;
+  return buttonNumber;
 }
 
-void Controller::requestOperation(String content) {
+void Controller::sendOperation(String content) {
 
+}
+
+void Controller::sendOperation(std::vector<int> oprnNum) {
+	mode->receiveOperation(oprnNum);
 }

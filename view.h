@@ -11,12 +11,14 @@
 class View {
 
   public:
-    View();
-    void Operation(std::vector<int>);
+    View();//initialize Display + Mode
+	void updateView();
+	uint8_t copyBuffer();
+
 
   private:
     Adafruit_PCD8544 display = Adafruit_PCD8544(9, 8, 7);
-    Mode *mode;
+	void set_text(int, int, String, int);
 
 };
 #endif

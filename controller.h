@@ -7,19 +7,23 @@
 #include "microSD.h"
 #include "speaker.h"
 #include <vector>
+#include "Mode.h"
 
 
 class Controller {
 
     public:
       Controller();//setting(initialization)
-      std::vector<int> getOperation();//button
-      void requestOperation(String);//speaker,microSD
+      std::vector<int> getOperation();//button operation
+      void sendOperation(String);//speaker,microSD
+	  void sendOperation(std::vector<int>);//send operation to Mode
 
     private:
       std::vector<Button*> buttons;
       MicroSD *memory;
+	  std::vector<int> buttonNumber;//save pinNumber
       Speaker *speaker;
+      Mode *mode;
 
 
 };
