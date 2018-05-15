@@ -1,6 +1,6 @@
 #include "mode.h"
 
-Mode::Mode() {
+Mode::Mode(Adafruit_PCD8544 receiveDisplay):viewDisplay(receiveDisplay){
   //currentMode = HOME;
 	currentMode = DEBUG;
 }

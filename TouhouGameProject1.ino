@@ -8,7 +8,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   view = new View();
-  cntl = new Controller();
+  cntl = new Controller(view);
 
 }
 

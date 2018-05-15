@@ -14,17 +14,13 @@ void View::updateView() {
 	display.display();
 }
 
+Adafruit_PCD8544 View::getDisplay() {
+	return display;
+}
+
 void View::set_text(int x, int y, String text, int color) {
 	display.setTextColor(color);
 	display.setCursor(x, y);
 	display.println(text);
 	display.display();
-}
-
-uint8_t View::copyBuffer() {
-	uint8_t copyArray[LCDWIDTH * LCDHEIGHT / 8];
-	for (int i = 0; i <= LCDWIDTH * LCDHEIGHT / 8; i++) {
-		copyArray[i] = display.pcd8544_buffer[i];
-	}
-	return copyArray;
 }

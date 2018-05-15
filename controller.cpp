@@ -1,6 +1,6 @@
 #include "controller.h"
 
-Controller::Controller() {
+Controller::Controller(View *receiveView):view(receiveView){
 	//set button array
   buttons.push_back(new Button(4));
   buttons.push_back(new Button(5));
@@ -8,7 +8,7 @@ Controller::Controller() {
   memory = new MicroSD();
   memory->initSD();//initialize memory
   //speaker = new Speaker();
-  mode = new Mode();
+  mode = new Mode(view->getDisplay());
 }
 
 std::vector<int> Controller::getOperation() {

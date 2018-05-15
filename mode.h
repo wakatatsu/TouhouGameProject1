@@ -1,19 +1,21 @@
 #ifndef MODE_H_INCLUDE
 #define MODE_H_INCLUDE
 
-#include "StandardCplusplus.h"
+#include "view.h"
+#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
 #include <vector>
 #include "debugMode.h"
 
 class Mode {
 
     public:
-      Mode();
-      void receiveOperation(std::vector<int>);
+		Mode(Adafruit_PCD8544);
+		void receiveOperation(std::vector<int>);
 
 
     private:
-      int currentMode;
+		Adafruit_PCD8544 viewDisplay;
+		int currentMode;
 
 
 };
