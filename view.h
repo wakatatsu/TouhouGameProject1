@@ -10,13 +10,13 @@ class View {
 
   public:
     View();//initialize Display + Mode
-	void updateView();
-	Adafruit_PCD8544 getDisplay();
+	  void update();
+	  Adafruit_PCD8544 getDisplay();
 
 
   private:
     Adafruit_PCD8544 display = Adafruit_PCD8544(9, 8, 7);
-	void set_text(int, int, String, int);
+	  void set_text(int, int, String, int);
 
 };
 #endif

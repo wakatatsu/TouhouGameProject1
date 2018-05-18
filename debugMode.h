@@ -1,14 +1,15 @@
 #ifndef DEBUGMODE_H_INCLUDE
 #define DEBUGMODE_H_INCLUDE
 
-class DebugMode {
+//#include "mode.h"
 
-  public:
-    DebugMode();
+class DebugMode /*: public Mode */{
 
-  private:
-    int a;
+public:
+  DebugMode();
+
+private:
+  int test;
 
 };
-
 #endif

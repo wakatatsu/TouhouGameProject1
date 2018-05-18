@@ -1,8 +1,11 @@
 #include "mode.h"
+#include "debugMode.h"
 
 Mode::Mode(Adafruit_PCD8544 receiveDisplay):viewDisplay(receiveDisplay){
   //currentMode = HOME;
 	currentMode = DEBUG;
+	testmode = new DebugMode();
+	//modeArray.push_back(new DebugMode());
 }
 
 void Mode::receiveOperation(std::vector<int> oprnNum) {

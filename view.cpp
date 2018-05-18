@@ -10,7 +10,7 @@ View::View() {
   display.clearDisplay();
 }
 
-void View::updateView() {
+void View::update() {
 	display.display();
 }
 

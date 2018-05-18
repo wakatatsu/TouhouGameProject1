@@ -1,6 +1,7 @@
 #ifndef MODE_H_INCLUDE
 #define MODE_H_INCLUDE
 
+#include "Arduino.h"
 #include "view.h"
 #include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
 #include <vector>
@@ -9,13 +10,16 @@
 class Mode {
 
     public:
-		Mode(Adafruit_PCD8544);
-		void receiveOperation(std::vector<int>);
+      Mode();
+      Mode(Adafruit_PCD8544);
+		  void receiveOperation(std::vector<int>);
 
 
     private:
-		Adafruit_PCD8544 viewDisplay;
-		int currentMode;
+  		Adafruit_PCD8544 viewDisplay;
+  		int currentMode;
+      DebugMode *testmode;
+      //std::vector<Mode*> modeArray;
 
 
 };

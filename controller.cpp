@@ -1,14 +1,19 @@
 #include "controller.h"
 
-Controller::Controller(View *receiveView):view(receiveView){
-	//set button array
+Controller::Controller() {
+  view = new View();//setup Display
+  mode = new Mode(view->getDisplay());//setup Mode
+	//setup Button array
   buttons.push_back(new Button(4));
   buttons.push_back(new Button(5));
   buttons.push_back(new Button(6));
   memory = new MicroSD();
   memory->initSD();//initialize memory
   //speaker = new Speaker();
-  mode = new Mode(view->getDisplay());
+}
+
+void Controller::updateView() {
+  view->update();
 }
 
 std::vector<int> Controller::getOperation() {

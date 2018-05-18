@@ -13,17 +13,18 @@
 class Controller {
 
     public:
-      Controller(View*);//setting(initialization)
+      Controller();//setting
+      void updateView();//update Display
       std::vector<int> getOperation();//button operation
       void sendOperation(String);//speaker,microSD
-	  void sendOperation(std::vector<int>);//send operation to Mode
+	    void sendOperation(std::vector<int>);//send operation to Mode
 
     private:
       std::vector<Button*> buttons;
       MicroSD *memory;
-	  std::vector<int> buttonNumber;//save pinNumber
+	    std::vector<int> buttonNumber;//save pinNumber
       Speaker *speaker;
-	  View *view;
+	    View *view;
       Mode *mode;
 
 
