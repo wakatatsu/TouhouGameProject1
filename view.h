@@ -11,11 +11,12 @@ class View {
   public:
     View();//initialize Display + Mode
 	  void update();
-	  Adafruit_PCD8544 getDisplay();
+	  Adafruit_PCD8544 *getDisplay();
 
 
   private:
     Adafruit_PCD8544 display = Adafruit_PCD8544(9, 8, 7);
+    Adafruit_PCD8544 *displayPointer;
 	  void set_text(int, int, String, int);
 
 };

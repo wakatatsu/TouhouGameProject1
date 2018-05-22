@@ -8,14 +8,15 @@ View::View() {
   set_text(11, 0, "Please Wate!", BLACK);
   delay(2000);
   display.clearDisplay();
+  displayPointer = &display;
 }
 
 void View::update() {
 	display.display();
 }
 
-Adafruit_PCD8544 View::getDisplay() {
-	return display;
+Adafruit_PCD8544 *View::getDisplay() {
+	return displayPointer;
 }
 
 void View::set_text(int x, int y, String text, int color) {

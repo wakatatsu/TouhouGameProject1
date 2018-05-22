@@ -10,16 +10,14 @@
 class Mode {
 
     public:
-      Mode();
-      Mode(Adafruit_PCD8544);
+      Mode(Adafruit_PCD8544*);
 		  void receiveOperation(std::vector<int>);
 
 
     private:
-  		Adafruit_PCD8544 viewDisplay;
+  		Adafruit_PCD8544 *viewDisplay;
   		int currentMode;
-      DebugMode *testmode;
-      //std::vector<Mode*> modeArray;
+  		DebugMode *testmode;
 
 
 };
