@@ -10,14 +10,20 @@ class View {
 
   public:
     View();//initialize Display + Mode
-	  void update();
-	  Adafruit_PCD8544 *getDisplay();
+	void update();
+	void drawRect(int x, int y, int w, int h, int fillFlag);
+  void drawRoundRect(int x, int y, int w, int h, int r, int fillFlag);
+	void drawCircle(int x, int y, int r, int fillFlag);
+	void drawTriangle(int x, int y, int w1, int h1, int w2, int h2, int fillFlag);
+	void drawLine(int x1, int y1, int x2, int y2);
+	void drawPixel(int x, int y);
+	void drawText(int x, int y, String text);
+  //void drawBitMap();
+
 
 
   private:
     Adafruit_PCD8544 display = Adafruit_PCD8544(9, 8, 7);
-    Adafruit_PCD8544 *displayPointer;
-	  void set_text(int, int, String, int);
 
 };
 #endif
