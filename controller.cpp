@@ -17,13 +17,12 @@ void Controller::updateView() {
 }
 
 std::vector<int> Controller::getOperation() {
-	int counter = 0;
+	int offsetNumber = buttons[0]->getPin();
 	buttonNumber.clear();//clear array
 	for (auto itr : buttons) {
 		if (itr->getValue() == HIGH) {
-			buttonNumber.push_back(counter);
+			buttonNumber.push_back(itr->getPin() - offsetNumber);
 		}
-		counter++;
 	}
 	return buttonNumber;
 }

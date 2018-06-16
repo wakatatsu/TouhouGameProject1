@@ -9,7 +9,8 @@ Mode::Mode(View *view) :viewPointer(view) {
 void Mode::sendOperation(std::vector<int> oprnNum) {
 	switch (currentMode) {
 	case -1:
-		testmode->testView(oprnNum);
+		//testmode->baceCommandTest(oprnNum);
+		testmode->bitMapTest(oprnNum);
 		break;
 	case 0:
 

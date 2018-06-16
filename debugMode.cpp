@@ -1,44 +1,57 @@
 #include "debugMode.h"
 
 DebugMode::DebugMode(View *view) :viewPointer(view) {
-	test = 0;
 }
 
-void DebugMode::testView(std::vector<int> oprnNum) {
-	//int x = LCDWIDTH / 2;
-	//int y = LCDHEIGHT / 2;
+void DebugMode::baceCommandTest(std::vector<int> oprnNum) {
+	String text = "hogehoge";
 	for (auto itr : oprnNum) {
 		switch (itr) {
 		case 0:
-			viewPointer->drawRect(LCDWIDTH / 3, LCDHEIGHT / 2, 5, 5, 0);
-			viewPointer->drawRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 2, 5, 5, 1);
+			viewPointer->drawRect(LCDWIDTH / 3, LCDHEIGHT / 3, 9, 9, 0);
+			viewPointer->drawRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 3, 9, 9, 1);
+			viewPointer->drawRoundRect(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, 9, 9, 3, 0);
+			viewPointer->drawRoundRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 9, 9, 3, 1);
 			break;
 		case 1:
-			viewPointer->drawRoundRect(LCDWIDTH / 3, LCDHEIGHT / 2, 5, 5, 2, 0);
-			viewPointer->drawRoundRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 2, 5, 5, 2, 1);
+			viewPointer->drawCircle(LCDWIDTH / 3, LCDHEIGHT / 3, 5, 0);
+			viewPointer->drawCircle(LCDWIDTH / 3 * 2, LCDHEIGHT / 3, 5, 1);
+			viewPointer->drawTriangle(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, 5, 5, 3, 3, 0);
+			viewPointer->drawTriangle(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 5, 5, 3, 3, 1);
 			break;
-			/*
 		case 2:
-			viewPointer->drawCircle(x, y, r, 0);
-			viewPointer->drawCircle(x, y, r, 1);
+			viewPointer->drawLine(LCDWIDTH / 3, LCDHEIGHT / 3, LCDWIDTH / 3 * 2, LCDHEIGHT / 3);
+			viewPointer->drawText(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, text);
 			break;
-		case 3:
-			viewPointer->drawTriangle(x, y, w1, h1, w2, h2, 0);
-			viewPointer->drawTriangle(x, y, w1, h1, w2, h2, 1);
-			break;
-		case 4:
-			viewPointer->drawLine(x1, y1, x2, y2);
-			break;
-		case 5:
-			viewPointer->drawPixel(x, y);
-			break;
-		case 6:
-			String text = "hogehoge"
-				viewPointer->drawText(x, y, text);
-			break;
-			*/
 		default:
 			break;
 		}
 	}
+}
+
+const PROGMEM uint16_t bitmap[] = {
+	0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,1,0,
+	0,0,0,0,0,0,0,1,0,1,1,1,1,0,1,1,1,0,1,
+	0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,
+	0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,
+	0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+	0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,
+	0,0,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,0,
+	0,0,0,0,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,
+	0,0,0,0,1,1,0,1,0,0,1,0,1,1,1,0,1,1,0,
+	0,0,0,0,0,1,0,1,0,0,1,0,1,0,1,0,0,0,0,
+	0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,
+	0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,
+	1,0,0,0,0,1,1,1,0,1,0,1,0,1,1,0,0,0,0,
+	0,1,0,0,0,0,1,1,1,0,1,1,0,1,0,0,0,0,0,
+	1,0,1,0,0,1,0,1,1,0,1,1,1,0,1,0,0,0,0,
+	0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,
+	1,0,0,0,1,0,1,1,1,1,1,1,1,0,1,0,0,0,0,
+	0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,
+	0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,0,0,0,0,
+	0,0,0,0,0,0,1,1,1,0,1,1,1,0,0,0,0,0,0
+};
+
+void DebugMode::bitMapTest(std::vector<int> oprnNum) {
+	viewPointer->drawBitmap(LCDWIDTH / 4, LCDHEIGHT / 4, bitmap, 19, 20);
 }

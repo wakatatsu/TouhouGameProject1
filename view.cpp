@@ -65,3 +65,36 @@ void View::drawText(int x, int y, String text) {
 	display.setCursor(x, y);
 	display.println(text);
 }
+/*
+void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
+	display.drawBitmap(x, y, bitmap, w, h, BLACK);
+}
+*/
+void View::drawBitmap(int x, int y, uint16_t bitmap, int w, int h) {
+	int count = 0;
+	int data = 0;
+	for (int i = 0; i < w; i++) {
+		for (int j = 0; j < h; j++) {
+			data = pgm_read_word_near(bitmap + count);
+			if (data == 1) {
+				drawPixel(x + j, y + i);
+			}
+     Serial.print(data);
+			count++;
+			/*
+					Serial.print("x = ");
+			Serial.print(x+j);
+			Serial.print("  y = ");
+			Serial.println(y+i);
+
+			Serial.print("bitmap=[");
+			Serial.print(count - 1);
+			Serial.print("]=");
+			Serial.println(data);
+			*/
+			delay(100);
+		}
+		Serial.println();
+	}
+ Serial.println();
+}

@@ -1,6 +1,9 @@
 #ifndef VIEW_H_INCLUDE
 #define VIEW_H_INCLUDE
 
+#include "Arduino.h"
+#include <avr/pgmspace.h>
+
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
@@ -19,7 +22,7 @@ public:
 	void drawLine(int x1, int y1, int x2, int y2);
 	void drawPixel(int x, int y);
 	void drawText(int x, int y, String text);
-	//void drawBitMap();
+	void drawBitmap(int x, int y, uint16_t bitmap, int w, int h);
 
 
 
