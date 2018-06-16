@@ -1,34 +1,30 @@
 #include "controller.h"
 
 Controller::Controller() {
-  view = new View();//setup Display
-<<<<<<< HEAD
-  mode = new Mode(view);//setup Mode
-=======
-  mode = new Mode();//setup Mode
->>>>>>> 69893c67fffb02de85e851f31bb9d0364ce546f6
+	view = new View();//setup Display
+	mode = new Mode(view);//setup Mode
 	//setup Button array
-  buttons.push_back(new Button(4));
-  buttons.push_back(new Button(5));
-  buttons.push_back(new Button(6));
-  //memory = new MicroSD();
-  //memory->initSD();//initialize memory
-  //speaker = new Speaker();
+	buttons.push_back(new Button(4));
+	buttons.push_back(new Button(5));
+	buttons.push_back(new Button(6));
+	//memory = new MicroSD();
+	//memory->initSD();//initialize memory
+	//speaker = new Speaker();
 }
 
 void Controller::updateView() {
-  view->update();
+	view->update();
 }
 
 std::vector<int> Controller::getOperation() {
 	int counter = 0;
 	buttonNumber.clear();//clear array
- 	for(auto itr : buttons) {
-    	if(itr->getValue() == HIGH) {
-    		buttonNumber.push_back(counter);
-    	}
-  		counter++;
-  	}
+	for (auto itr : buttons) {
+		if (itr->getValue() == HIGH) {
+			buttonNumber.push_back(counter);
+		}
+		counter++;
+	}
 	return buttonNumber;
 }
 /*

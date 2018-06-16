@@ -10,9 +10,9 @@ void setup() {
 }
 
 void loop() {
-
-  cntl->updateView();
+  
+  cntl->updateView();//update display
   cntl->sendOperation(cntl->getOperation());//send operation button
-  //draw on display
+  
 
 }

@@ -1,21 +1,22 @@
 #include "view.h"
 
 View::View() {
-  display.begin();
-  display.setContrast(60);
-  display.clearDisplay();
-  display.setTextSize(1);
-  drawText(11, 0, "Please Wate!");
-  delay(2000);
-  display.clearDisplay();
+	display.begin();
+	display.setContrast(60);
+	display.clearDisplay();
+	display.setTextSize(1);
+	drawText(11, 0, "Please Wate!");
+	delay(2000);
+	display.clearDisplay();
 }
 
 void View::update() {
 	display.display();
+	display.clearDisplay();
 }
 
 void View::drawRect(int x, int y, int w, int h, int fillFlag) {
-	if(fillFlag == 0) {
+	if (fillFlag == 0) {
 		display.drawRect(x, y, w, h, BLACK);
 	}
 	else {
@@ -23,16 +24,16 @@ void View::drawRect(int x, int y, int w, int h, int fillFlag) {
 	}
 }
 void View::drawRoundRect(int x, int y, int w, int h, int r, int fillFlag) {
-  if(fillFlag == 0) {
-    display.drawRoundRect(x, y, w, h, r, BLACK);
-  }
-  else {
-    display.fillRoundRect(x, y, w, h, r, BLACK);
-  }
+	if (fillFlag == 0) {
+		display.drawRoundRect(x, y, w, h, r, BLACK);
+	}
+	else {
+		display.fillRoundRect(x, y, w, h, r, BLACK);
+	}
 }
 
 void View::drawCircle(int x, int y, int r, int fillFlag) {
-	if(fillFlag == 0) {
+	if (fillFlag == 0) {
 		display.drawCircle(x, y, r, BLACK);
 	}
 	else {
@@ -41,7 +42,7 @@ void View::drawCircle(int x, int y, int r, int fillFlag) {
 }
 
 void View::drawTriangle(int x, int y, int w1, int h1, int w2, int h2, int fillFlag) {
-	if(fillFlag == 0) {
+	if (fillFlag == 0) {
 		display.drawTriangle(x, y, w1, h1, w2, h2, BLACK);
 	}
 	else {
