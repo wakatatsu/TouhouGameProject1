@@ -2,7 +2,11 @@
 
 Controller::Controller() {
   view = new View();//setup Display
+<<<<<<< HEAD
   mode = new Mode(view);//setup Mode
+=======
+  mode = new Mode();//setup Mode
+>>>>>>> 69893c67fffb02de85e851f31bb9d0364ce546f6
 	//setup Button array
   buttons.push_back(new Button(4));
   buttons.push_back(new Button(5));

@@ -10,12 +10,19 @@
 class Mode {
 
     public:
+<<<<<<< HEAD
 		Mode(View*);
+=======
+		Mode();
+>>>>>>> 69893c67fffb02de85e851f31bb9d0364ce546f6
 		void sendOperation(std::vector<int>);
 
 
     private:
+<<<<<<< HEAD
       View *viewPointer;
+=======
+>>>>>>> 69893c67fffb02de85e851f31bb9d0364ce546f6
   		int currentMode;
   		DebugMode *testmode;
 

@@ -1,6 +1,10 @@
 #include "mode.h"
 
+<<<<<<< HEAD
 Mode::Mode(View *view) :viewPointer(view){
+=======
+Mode::Mode() {
+>>>>>>> 69893c67fffb02de85e851f31bb9d0364ce546f6
   //currentMode = HOME;
 	currentMode = DEBUG;
 	testmode = new DebugMode(view);
