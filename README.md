@@ -30,10 +30,13 @@ For more information, see `awesome-tool --help`.
 
 追加使用ライブラリ
 - Adafruit-GFX-Library
-- Adafruit_PCD8544_Nokia_5110_LCD_library
-- StandardCplusplus
+-	$ git clone https://github.com/adafruit/Adafruit-GFX-Library.git
 
-    $ git clone https://github.com/b4b4r07/awesome-tool
+- Adafruit_PCD8544_Nokia_5110_LCD_library
+-	$ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
+
+- StandardCplusplus
+-	$ git clone https://github.com/maniacbug/StandardCplusplus.git
 
 ## Anything Else(他に何か)
 
