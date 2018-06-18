@@ -17,7 +17,7 @@ void MicroSD::writeSD(String fileName) {
   myFile = SD.open(fileName);
   if(myFile) {
     while(myFile.available()) {
-      
+      //myFile.print();//write data
     }
     myFile.close();
   }
@@ -31,7 +31,7 @@ void MicroSD::readSD(String fileName) {
   myFile = SD.open(fileName);
   if(myFile) {
     while(myFile.available()) {
-      
+      //myFile.read();//read data
     }
     myFile.close();
   }
@@ -41,4 +41,3 @@ void MicroSD::readSD(String fileName) {
   }
   
 }
-

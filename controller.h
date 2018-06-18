@@ -21,7 +21,7 @@ public:
 
 private:
 	std::vector<Button*> buttons;
-	//MicroSD *memory;
+	MicroSD *memory;
 	std::vector<int> buttonNumber;//save pinNumber
 	//Speaker *speaker;
 	View *view;

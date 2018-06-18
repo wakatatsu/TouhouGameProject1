@@ -1,7 +1,7 @@
 #include "debugMode.h"
 
 
-const  PROGMEM uint8_t bitmap[19*20] = {
+const PROGMEM uint8_t bitmap[19 * 20] = {
   0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,1,0,
   0,0,0,0,0,0,0,1,0,1,1,1,1,0,1,1,1,0,1,
   0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,
@@ -55,5 +55,28 @@ void DebugMode::baceCommandTest(std::vector<int> oprnNum) {
 }
 
 void DebugMode::bitMapTest(std::vector<int> oprnNum) {
+	/*
+	for (auto itr = oprnNum) {
+		switch (itr) {
+		case 0:
+			viewPointer->drawBitmap(0, 0, 1, 12, 12);
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 2, 12, 12);
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 3, 12, 12);
+			break;
+		case 1:
+			viewPointer->drawBitmap(0, 0, 4, 12, 12);
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 5, 12, 12);
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 6, 12, 12);
+			break;
+		case 2:
+			viewPointer->drawBitmap(0, 0, 7, 12, 12);
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 8, 12, 12);
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 9, 19, 20);
+			break;
+		default:
+			break;
+		}
+	}
+	*/
 	viewPointer->drawBitmap(LCDWIDTH / 4, LCDHEIGHT / 4, bitmap, 19, 20);
 }

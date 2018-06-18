@@ -23,6 +23,7 @@ public:
 	void drawPixel(int x, int y);
 	void drawText(int x, int y, String text);
 	void drawBitmap(int x, int y, uint8_t *bitmap, int w, int h);
+	void drawBaceBitmap(int x, int y, int baceType, int w, int h);
 
 
 

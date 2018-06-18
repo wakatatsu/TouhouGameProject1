@@ -59,9 +59,9 @@ void View::drawPixel(int x, int y) {
 }
 
 void View::drawText(int x, int y, String text) {
-	//splay.setTextSize(1);
+	//splay.setTextSize(1);//don't know function
 	display.setTextColor(BLACK);
-	//display.setTextColor(WHITE, BLACK);
+	//display.setTextColor(WHITE, BLACK);//don't know function
 	display.setCursor(x, y);
 	display.println(text);
 }
@@ -82,5 +82,30 @@ void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 			}
 			count++;
 		}
+	}
+}
+
+void View::drawBaceBitmap(int x, int y, int baceType, int w, int h) {
+	switch (baceType) {
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	case 6:
+		break;
+	case 7:
+		break;
+	case 8:
+		break;
+	case 9:
+		break;
+	default:
+		break;
 	}
 }

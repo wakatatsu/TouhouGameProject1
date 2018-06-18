@@ -7,8 +7,8 @@ Controller::Controller() {
 	buttons.push_back(new Button(4));
 	buttons.push_back(new Button(5));
 	buttons.push_back(new Button(6));
-	//memory = new MicroSD();
-	//memory->initSD();//initialize memory
+	memory = new MicroSD();
+	memory->initSD();//initialize memory
 	//speaker = new Speaker();
 }
 
