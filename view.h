@@ -22,7 +22,7 @@ public:
 	void drawLine(int x1, int y1, int x2, int y2);
 	void drawPixel(int x, int y);
 	void drawText(int x, int y, String text);
-	void drawBitmap(int x, int y, uint8_t bitmap, int w, int h);
+	void drawBitmap(int x, int y, uint8_t *bitmap, int w, int h);
 
 
 

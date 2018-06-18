@@ -70,25 +70,17 @@ void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 	display.drawBitmap(x, y, bitmap, w, h, BLACK);
 }
 */
-void View::drawBitmap(int x, int y, uint8_t bitmap, int w, int h) {
+
+void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 	int count = 0;
 	uint8_t data = 0;
 	for (int i = 0; i < h; i++) {
 		for (int j = 0; j < w; j++) {
-			data = pgm_read_byte_near(bitmap + count);
+			data = pgm_read_byte(bitmap + count);
 			if (data == 1) {
 				drawPixel(x + j, y + i);
 			}
 			count++;
-
-			//‚È‚º‚©‰º‹L‚ğÀs‚µ‚È‚¢‚Æ‚¿‚á‚ñ‚Æ“®ì‚µ‚È‚¢
-			Serial.print(0);
-			Serial.print(0);
-
-			delay(1);
-			//delayMicroseconds(100);
 		}
-		//Serial.println();
 	}
-	//Serial.println();
 }
