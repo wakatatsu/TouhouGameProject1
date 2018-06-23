@@ -59,19 +59,19 @@ void DebugMode::bitMapTest(std::vector<int> oprnNum) {
 	for (auto itr = oprnNum) {
 		switch (itr) {
 		case 0:
-			viewPointer->drawBitmap(0, 0, 1, 12, 12);
-			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 2, 12, 12);
-			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 3, 12, 12);
+			viewPointer->drawBitmap(0, 0, 12, 12, "modeData1.txt");
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, "modeData2.txt");
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, "modeData3.txt");
 			break;
 		case 1:
-			viewPointer->drawBitmap(0, 0, 4, 12, 12);
-			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 5, 12, 12);
-			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 6, 12, 12);
+			viewPointer->drawBitmap(0, 0, 12, 12, "modeData4.txt");
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, "modeData5.txt");
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, "modeData6.txt");
 			break;
 		case 2:
-			viewPointer->drawBitmap(0, 0, 7, 12, 12);
-			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 8, 12, 12);
-			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 9, 19, 20);
+			viewPointer->drawBitmap(0, 0, 12, 12, "modeData7.txt");
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, "modeData8.txt");
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 19, 20, "reimuData.txt");
 			break;
 		default:
 			break;

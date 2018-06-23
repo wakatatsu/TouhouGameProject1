@@ -1,8 +1,6 @@
 #include "controller.h"
 
 Controller::Controller() {
-	view = new View();//setup Display
-	mode = new Mode(view);//setup Mode
 	//setup Button array
 	buttons.push_back(new Button(4));
 	buttons.push_back(new Button(5));
@@ -10,6 +8,8 @@ Controller::Controller() {
 	memory = new MicroSD();
 	memory->initSD();//initialize memory
 	//speaker = new Speaker();
+	view = new View(memory);//setup Display
+	mode = new Mode(view);//setup Mode
 }
 
 void Controller::updateView() {

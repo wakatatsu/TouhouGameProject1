@@ -1,6 +1,6 @@
 #include "view.h"
 
-View::View() {
+View::View(MicroSD *memory) :memoryPointer(memory) {
 	display.begin();
 	display.setContrast(60);
 	display.clearDisplay();
@@ -85,27 +85,22 @@ void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 	}
 }
 
-void View::drawBaceBitmap(int x, int y, int baceType, int w, int h) {
-	switch (baceType) {
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	case 4:
-		break;
-	case 5:
-		break;
-	case 6:
-		break;
-	case 7:
-		break;
-	case 8:
-		break;
-	case 9:
-		break;
-	default:
-		break;
+void View::drawBaceBitmap(int x, int y, int w, int h, String baceType) {
+	uint8_t data;
+	//size check
+	if ((w != 12 || h != 12) && (w != 19 || h != 20)) {
+		Serial.println("BitmapSizeERROR");
+	}
+	else {
+		memoryPointer->openloadFile(baceType);
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				data = memoryPointer->readBitmapData();
+				if (data == 1) {
+					drawPixel(x + j, y + i);
+				}
+			}
+		}
+		memoryPointer->closeloadFile();
 	}
 }

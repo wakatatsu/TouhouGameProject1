@@ -6,16 +6,21 @@
 
 class MicroSD {
 
-  public:
-    MicroSD();
-    void initSD();
-    void writeSD(String);
-    void readSD(String);
-	
-    
-  private:
-    File myFile;
-    
+public:
+	MicroSD();
+	void initSD();
+	void writeSD(String fileName);
+	void readSD(String fileName);
+	void openloadFile(String fileName);
+	void closeloadFile();
+	uint8_t readBitmapData();
+
+
+private:
+	File myFile;
+	File loadFile;
+	String loadFileName;
+
 };
 
 #endif
