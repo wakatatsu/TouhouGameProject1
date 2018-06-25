@@ -4,12 +4,14 @@
 //#include "Arduino.h"
 #include "view.h"
 #include "debugMode.h"
+#include "homeMode.h"
 
 class Mode {
 
 public:
 	Mode(View*);
 	void sendOperation(std::vector<int>);
+	void changeMode(int toMode);
 
 
 private:

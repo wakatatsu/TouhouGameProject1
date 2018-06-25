@@ -26,6 +26,7 @@ std::vector<int> Controller::getOperation() {
 	}
 	return buttonNumber;
 }
+
 /*
 void Controller::sendOperation(String content) {
 

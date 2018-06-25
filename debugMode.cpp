@@ -1,6 +1,7 @@
 #include "debugMode.h"
 
 
+
 const PROGMEM uint8_t bitmap[19 * 20] = {
   0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,1,0,
   0,0,0,0,0,0,0,1,0,1,1,1,1,0,1,1,1,0,1,
@@ -55,8 +56,8 @@ void DebugMode::baceCommandTest(std::vector<int> oprnNum) {
 }
 
 void DebugMode::bitMapTest(std::vector<int> oprnNum) {
-	/*
-	for (auto itr = oprnNum) {
+	
+	for (auto itr : oprnNum) {
 		switch (itr) {
 		case 0:
 			viewPointer->drawBitmap(0, 0, 12, 12, "modeData1.txt");
@@ -77,6 +78,6 @@ void DebugMode::bitMapTest(std::vector<int> oprnNum) {
 			break;
 		}
 	}
-	*/
-	viewPointer->drawBitmap(LCDWIDTH / 4, LCDHEIGHT / 4, bitmap, 19, 20);
+	
+	//viewPointer->drawBitmap(LCDWIDTH / 4, LCDHEIGHT / 4, bitmap, 19, 20);
 }
