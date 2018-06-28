@@ -4,7 +4,6 @@ View::View(MicroSD *memory) :memoryPointer(memory) {
 	display.begin();
 	display.setContrast(60);
 	display.clearDisplay();
-	display.setTextSize(1);
 	drawText(11, 0, "Please Wate!");
 	delay(2000);
 	display.clearDisplay();
@@ -59,17 +58,12 @@ void View::drawPixel(int x, int y) {
 }
 
 void View::drawText(int x, int y, String text) {
-	//splay.setTextSize(1);//don't know function
+	display.setTextSize(1);
 	display.setTextColor(BLACK);
 	//display.setTextColor(WHITE, BLACK);//don't know function
 	display.setCursor(x, y);
 	display.println(text);
 }
-/*
-void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
-	display.drawBitmap(x, y, bitmap, w, h, BLACK);
-}
-*/
 
 void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 	int count = 0;
@@ -87,11 +81,7 @@ void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 
 void View::drawBaceBitmap(int x, int y, int w, int h, String baceType) {
 	char data;
-	//size check
-	if ((w != 12 || h != 12) && (w != 19 || h != 20)) {
-		Serial.println("error BitmapSize");
-	}
-	else {
+	if ((w == 12 && h == 12) || (w == 19 && h == 20)) {
 		memoryPointer->openloadFile(baceType);
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {

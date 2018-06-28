@@ -1,24 +1,23 @@
 #include "controller.h"
 
 Controller::Controller() {
-	//setup Button array
 	buttons.push_back(new Button(4));
 	buttons.push_back(new Button(5));
 	buttons.push_back(new Button(6));
 	memory = new MicroSD();
-	memory->initSD();//initialize memory
+	memory->initSD();
 	//speaker = new Speaker();
-	view = new View(memory);//setup Display
-	mode = new Mode(view);//setup Mode
+	view = new View(memory);
+	modeManage = new ModeManage(view);
 }
 
 void Controller::updateView() {
 	view->update();
 }
 
-std::vector<int> Controller::getOperation() {
-	int offsetNumber = buttons[0]->getPin();
-	buttonNumber.clear();//clear array
+std::vector<uint8_t> Controller::getOperation() {
+	uint8_t offsetNumber = buttons[0]->getPin();
+	buttonNumber.clear();
 	for (auto itr : buttons) {
 		if (itr->getValue() == HIGH) {
 			buttonNumber.push_back(itr->getPin() - offsetNumber);
@@ -27,12 +26,6 @@ std::vector<int> Controller::getOperation() {
 	return buttonNumber;
 }
 
-/*
-void Controller::sendOperation(String content) {
-
-}
-*/
-
-void Controller::sendOperation(std::vector<int> oprnNum) {
-	mode->sendOperation(oprnNum);
+void Controller::sendOperation(std::vector<uint8_t> oprnNum) {
+	modeManage->sendOperation(oprnNum);
 }

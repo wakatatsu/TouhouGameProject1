@@ -1,6 +1,10 @@
 #include "homeMode.h";
 
-HomeMode::HomeMode(View *view) : viewPointer(view) {
+HomeMode::HomeMode() {
+
+}
+
+HomeMode::~HomeMode() {
 
 }
 

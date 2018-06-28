@@ -1,7 +1,7 @@
 #include "debugMode.h"
 
 
-
+/*
 const PROGMEM uint8_t bitmap[19 * 20] = {
   0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,1,0,
   0,0,0,0,0,0,0,1,0,1,1,1,1,0,1,1,1,0,1,
@@ -24,12 +24,18 @@ const PROGMEM uint8_t bitmap[19 * 20] = {
   0,0,0,0,0,1,1,0,1,1,1,0,1,1,0,0,0,0,0,
   0,0,0,0,0,0,1,1,1,0,1,1,1,0,0,0,0,0,0
 };
+*/
 
 
-DebugMode::DebugMode(View *view) :viewPointer(view) {
+DebugMode::DebugMode() {
+
 }
 
-void DebugMode::baceCommandTest(std::vector<int> oprnNum) {
+DebugMode::~DebugMode() {
+
+}
+
+void DebugMode::baceCommandTest(std::vector<uint8_t> oprnNum) {
 	String text = "hogehoge";
 	for (auto itr : oprnNum) {
 		switch (itr) {
@@ -55,7 +61,7 @@ void DebugMode::baceCommandTest(std::vector<int> oprnNum) {
 	}
 }
 
-void DebugMode::bitMapTest(std::vector<int> oprnNum) {
+void DebugMode::bitMapTest(std::vector<uint8_t> oprnNum) {
 	
 	for (auto itr : oprnNum) {
 		switch (itr) {

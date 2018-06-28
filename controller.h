@@ -7,25 +7,24 @@
 #include "microSD.h"
 #include "speaker.h"
 #include "view.h"
-#include "mode.h"
+#include "modeManage.h"
 
 
 class Controller {
 
 public:
-	Controller();//setting
-	void updateView();//update Display
-	std::vector<int> getOperation();//button operation
-	//void sendOperation(String);//speaker,microSD
-	void sendOperation(std::vector<int>);//send operation to Mode
+	Controller();
+	void updateView();
+	std::vector<uint8_t> getOperation();
+	void sendOperation(std::vector<uint8_t>);
 
 private:
 	std::vector<Button*> buttons;
 	MicroSD *memory;
-	std::vector<int> buttonNumber;//save pinNumber
+	std::vector<uint8_t> buttonNumber;
 	//Speaker *speaker;
 	View *view;
-	Mode *mode;
+	ModeManage *modeManage;
 
 
 };

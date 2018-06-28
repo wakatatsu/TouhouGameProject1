@@ -1,20 +1,17 @@
 #include "button.h"
 
-Button::Button():pinNumber(-1) {
+Button::Button():pinNumber(0) {
   
 }
 
-Button::Button(int num):pinNumber(num) {
+Button::Button(uint8_t num):pinNumber(num) {
 }
 
-int Button::getValue() {
-  return digitalRead(pinNumber);
+uint8_t Button::getValue() {
+  //return digitalRead(pinNumber);
+	return PIND & _BV(pinNumber);
 }
 
-void Button::setPin(int num) {
+uint8_t Button::getPin() {
+	return pinNumber;
 }
-
-int Button::getPin() {
-  return pinNumber;
-}
-

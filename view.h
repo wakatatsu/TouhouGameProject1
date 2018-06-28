@@ -2,7 +2,7 @@
 #define VIEW_H_INCLUDE
 
 #include "Arduino.h"
-#include <avr/pgmspace.h>//PROGMEM need to use(used"drawBitmap")
+//#include <avr/pgmspace.h>//PROGMEM need to use(used"drawBitmap")
 #include "microSD.h"
 
 #include <SPI.h>

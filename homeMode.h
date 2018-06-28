@@ -1,15 +1,15 @@
 #ifndef HOMEMODE_H_INCLUDE
 #define HOMEMODE_H_INCLUDE
 
-#include "view.h"
+#include "mode.h"
 
-class HomeMode {
+class HomeMode : public Mode {
 public:
-	HomeMode(View*);
+	HomeMode();
+	~HomeMode();
 	void run();
 
-private:
-	View *viewPointer;
+
 
 };
 #endif

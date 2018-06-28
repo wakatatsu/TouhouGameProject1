@@ -1,17 +1,17 @@
 #ifndef DEBUGMODE_H_INCLUDE
 #define DEBUGMODE_H_INCLUDE
 
-#include "view.h"
+#include "mode.h"
 
-class DebugMode {
+class DebugMode : public Mode{
 
 public:
-	DebugMode(View*);
-	void baceCommandTest(std::vector<int>);
-	void bitMapTest(std::vector<int>);
+	DebugMode();
+	~DebugMode();
+	void baceCommandTest(std::vector<uint8_t>);
+	void bitMapTest(std::vector<uint8_t>);
 
 private:
-	View *viewPointer;
 
 };
 #endif

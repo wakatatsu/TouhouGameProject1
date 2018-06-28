@@ -7,13 +7,12 @@ class Button {
 
   public:
     Button();
-    Button(int);
-    int getValue();
-    void setPin(int);
-    int getPin();
+    Button(uint8_t);
+    uint8_t getValue();
+	uint8_t getPin();
     
   private:
-    int pinNumber;
+    uint8_t pinNumber;
     
 };
 
