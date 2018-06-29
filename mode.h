@@ -20,7 +20,6 @@ public:
 
 protected:
 	static View *viewPointer;
-
 	static union Modes {
 		DebugMode *DebugMode;
 		HomeMode *HomeMode;
