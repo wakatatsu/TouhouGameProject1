@@ -44,9 +44,10 @@ void MicroSD::closeloadFile() {
 uint8_t MicroSD::readBitmapData() {
 	uint8_t data;
 	if (loadFile.available()) {
+		REREAD:
 		data = loadFile.read();
-		if (data == ',') {
-			data = loadFile.read();
+		if ((data != '0') && (data != '1')) {
+			goto REREAD;
 		}
 	}
 	return data;

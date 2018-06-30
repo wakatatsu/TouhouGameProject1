@@ -4,7 +4,6 @@ View::View(MicroSD *memory) :memoryPointer(memory) {
 	display.begin();
 	display.setContrast(60);
 	display.clearDisplay();
-	drawText(11, 0, "Please Wate!");
 	delay(2000);
 	display.clearDisplay();
 }
@@ -65,6 +64,7 @@ void View::drawText(int x, int y, String text) {
 	display.println(text);
 }
 
+/*
 void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 	int count = 0;
 	uint8_t data = 0;
@@ -78,6 +78,7 @@ void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
 		}
 	}
 }
+*/
 
 void View::drawBaceBitmap(int x, int y, int w, int h, String baceType) {
 	char data;

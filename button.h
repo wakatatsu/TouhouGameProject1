@@ -9,11 +9,11 @@ class Button {
     Button();
     Button(uint8_t);
     uint8_t getValue();
-	uint8_t getPin();
-    
+	  uint8_t getPin();
+
   private:
     uint8_t pinNumber;
-    
+
 };
 
 #endif

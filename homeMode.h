@@ -7,7 +7,7 @@ class HomeMode : public Mode {
 public:
 	HomeMode();
 	~HomeMode();
-	void run();
+	void run(std::vector<uint8_t>);
 
 
 

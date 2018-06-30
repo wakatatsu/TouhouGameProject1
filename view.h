@@ -8,8 +8,8 @@
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
-#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
-#include <vector>
+//#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
+//#include <vector>
 
 class View {
 

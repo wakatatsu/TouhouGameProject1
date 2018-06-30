@@ -8,6 +8,8 @@
 #define MEAL 3;
 
 #include "view.h"
+#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
+#include <vector>
 
 class DebugMode;
 class HomeMode;
