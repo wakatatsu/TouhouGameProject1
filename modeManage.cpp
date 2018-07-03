@@ -4,6 +4,7 @@ ModeManage::ModeManage(View *view) {
 	viewPointer = view;
 	currentMode.DebugMode = new DebugMode;
 	//new(&currentMode.DebugMode) DebugMode();
+	//currentMode.HomeMode = new HomeMode();
   //new(&currentMode.HomeMode) HomeMode();
 }
 

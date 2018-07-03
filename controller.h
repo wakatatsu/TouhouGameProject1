@@ -4,7 +4,6 @@
 
 #include "Arduino.h"
 #include "button.h"
-#include "microSD.h"
 #include "speaker.h"
 #include "view.h"
 #include "modeManage.h"
@@ -20,7 +19,6 @@ public:
 
 private:
 	std::vector<Button*> buttons;
-	MicroSD *memory;
 	std::vector<uint8_t> buttonNumber;
 	//Speaker *speaker;
 	View *view;

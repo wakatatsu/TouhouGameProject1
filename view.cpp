@@ -1,6 +1,6 @@
 #include "view.h"
 
-View::View(MicroSD *memory) :memoryPointer(memory) {
+View::View() {
 	display.begin();
 	display.setContrast(60);
 	display.clearDisplay();
@@ -13,7 +13,7 @@ void View::update() {
 	display.clearDisplay();
 }
 
-void View::drawRect(int x, int y, int w, int h, int fillFlag) {
+void View::drawRect(int8_t x, int8_t y, int8_t w, int8_t h, int8_t fillFlag) {
 	if (fillFlag == 0) {
 		display.drawRect(x, y, w, h, BLACK);
 	}
@@ -21,7 +21,7 @@ void View::drawRect(int x, int y, int w, int h, int fillFlag) {
 		display.fillRect(x, y, w, h, BLACK);
 	}
 }
-void View::drawRoundRect(int x, int y, int w, int h, int r, int fillFlag) {
+void View::drawRoundRect(int8_t x, int8_t y, int8_t w, int8_t h, int8_t r, int8_t fillFlag) {
 	if (fillFlag == 0) {
 		display.drawRoundRect(x, y, w, h, r, BLACK);
 	}
@@ -30,7 +30,7 @@ void View::drawRoundRect(int x, int y, int w, int h, int r, int fillFlag) {
 	}
 }
 
-void View::drawCircle(int x, int y, int r, int fillFlag) {
+void View::drawCircle(int8_t x, int8_t y, int8_t r, int8_t fillFlag) {
 	if (fillFlag == 0) {
 		display.drawCircle(x, y, r, BLACK);
 	}
@@ -39,7 +39,7 @@ void View::drawCircle(int x, int y, int r, int fillFlag) {
 	}
 }
 
-void View::drawTriangle(int x, int y, int w1, int h1, int w2, int h2, int fillFlag) {
+void View::drawTriangle(int8_t x, int8_t y, int8_t w1, int8_t h1, int8_t w2, int8_t h2, int8_t fillFlag) {
 	if (fillFlag == 0) {
 		display.drawTriangle(x, y, w1, h1, w2, h2, BLACK);
 	}
@@ -48,15 +48,15 @@ void View::drawTriangle(int x, int y, int w1, int h1, int w2, int h2, int fillFl
 	}
 }
 
-void View::drawLine(int x1, int y1, int x2, int y2) {
+void View::drawLine(int8_t x1, int8_t y1, int8_t x2, int8_t y2) {
 	display.drawLine(x1, y1, x2, y2, BLACK);
 }
 
-void View::drawPixel(int x, int y) {
+void View::drawPixel(int8_t x, int8_t y) {
 	display.drawPixel(x, y, BLACK);
 }
 
-void View::drawText(int x, int y, String text) {
+void View::drawText(int8_t x, int8_t y, String text) {
 	display.setTextSize(1);
 	display.setTextColor(BLACK);
 	//display.setTextColor(WHITE, BLACK);//don't know function
@@ -64,34 +64,16 @@ void View::drawText(int x, int y, String text) {
 	display.println(text);
 }
 
-/*
-void View::drawBitmap(int x, int y, uint8_t *bitmap, int w, int h) {
+void View::drawBaceBitmap(int8_t x, int8_t y, int8_t w, int8_t h, uint8_t *bitmap) {
 	int count = 0;
 	uint8_t data = 0;
-	for (int i = 0; i < h; i++) {
-		for (int j = 0; j < w; j++) {
+	for (int8_t i = 0; i < h; i++) {
+		for (int8_t j = 0; j < w; j++) {
 			data = pgm_read_byte(bitmap + count);
 			if (data == 1) {
 				drawPixel(x + j, y + i);
 			}
 			count++;
 		}
-	}
-}
-*/
-
-void View::drawBaceBitmap(int x, int y, int w, int h, String baceType) {
-	char data;
-	if ((w == 12 && h == 12) || (w == 19 && h == 20)) {
-		memoryPointer->openloadFile(baceType);
-		for (int i = 0; i < h; i++) {
-			for (int j = 0; j < w; j++) {
-				data = memoryPointer->readBitmapData();
-				if (data == '1') {
-					drawPixel(x + j, y + i);
-				}
-			}
-		}
-		memoryPointer->closeloadFile();
 	}
 }

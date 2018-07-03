@@ -4,10 +4,8 @@ Controller::Controller() {
 	buttons.push_back(new Button(4));
 	buttons.push_back(new Button(5));
 	buttons.push_back(new Button(6));
-	memory = new MicroSD();
-	memory->initSD();
 	//speaker = new Speaker();
-	view = new View(memory);
+	view = new View();
 	modeManage = new ModeManage(view);
 }
 

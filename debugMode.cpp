@@ -1,32 +1,5 @@
 #include "debugMode.h"
 
-
-/*
-const PROGMEM uint8_t bitmap[19 * 20] = {
-  0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,1,0,
-  0,0,0,0,0,0,0,1,0,1,1,1,1,0,1,1,1,0,1,
-  0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,
-  0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,
-  0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-  0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,
-  0,0,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,0,
-  0,0,0,0,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,
-  0,0,0,0,1,1,0,1,0,0,1,0,1,1,1,0,1,1,0,
-  0,0,0,0,0,1,0,1,0,0,1,0,1,0,1,0,0,0,0,
-  0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,
-  0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,
-  1,0,0,0,0,1,1,1,0,1,0,1,0,1,1,0,0,0,0,
-  0,1,0,0,0,0,1,1,1,0,1,1,0,1,0,0,0,0,0,
-  1,0,1,0,0,1,0,1,1,0,1,1,1,0,1,0,0,0,0,
-  0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,
-  1,0,0,0,1,0,1,1,1,1,1,1,1,0,1,0,0,0,0,
-  0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,
-  0,0,0,0,0,1,1,0,1,1,1,0,1,1,0,0,0,0,0,
-  0,0,0,0,0,0,1,1,1,0,1,1,1,0,0,0,0,0,0
-};
-*/
-
-
 DebugMode::DebugMode() {
 
 }
@@ -61,28 +34,24 @@ void DebugMode::baceCommandTest(std::vector<uint8_t> oprnNum) {
 }
 
 void DebugMode::bitMapTest(std::vector<uint8_t> oprnNum) {
-	//viewPointer->drawBaceBitmap(0, 0, 12, 12, "mode1.txt");
+	//viewPointer->drawBaceBitmap(0, 0, 19, 20, DATA1);
 	for (auto itr : oprnNum) {
 		switch (itr) {
 		case 0:
-			viewPointer->drawBaceBitmap(0, 0, 12, 12, "mode1.txt");
-			//viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, "mode2.txt");
-			//viewPointer->drawBaceBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, "mode3.txt");
+			viewPointer->drawBaceBitmap(0, 0, 19, 20, DATA1);
+			viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA2);
 			break;
 		case 1:
-			viewPointer->drawBaceBitmap(0, 0, 12, 12, "mode4.txt");
-			//viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, "mode5.txt");
-			//viewPointer->drawBaceBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, "mode6.txt");
+			viewPointer->drawBaceBitmap(0, 0, 12, 12, DATA3);
+			viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA4);
 			break;
 		case 2:
-			//viewPointer->drawBaceBitmap(0, 0, 12, 12, "mode7.txt");
-			//viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, "mode8.txt");
-			//viewPointer->drawBaceBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 19, 20, "reimu.txt");
+			viewPointer->drawBaceBitmap(0, 0, 12, 12, DATA5);
+			viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA6);
+			viewPointer->drawBaceBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, DATA7);
 			break;
 		default:
 			break;
 		}
 	}
-
-	//viewPointer->drawBitmap(LCDWIDTH / 4, LCDHEIGHT / 4, bitmap, 19, 20);
 }

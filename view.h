@@ -3,34 +3,31 @@
 
 #include "Arduino.h"
 //#include <avr/pgmspace.h>//PROGMEM need to use(used"drawBitmap")
-#include "microSD.h"
-
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
 //#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
 //#include <vector>
+#include "bitmapData.h"
 
 class View {
 
 public:
-	View(MicroSD*);//initialize Display + Mode
+	View();//initialize Display + Mode
 	void update();
-	void drawRect(int x, int y, int w, int h, int fillFlag);
-	void drawRoundRect(int x, int y, int w, int h, int r, int fillFlag);
-	void drawCircle(int x, int y, int r, int fillFlag);
-	void drawTriangle(int x, int y, int w1, int h1, int w2, int h2, int fillFlag);
-	void drawLine(int x1, int y1, int x2, int y2);
-	void drawPixel(int x, int y);
-	void drawText(int x, int y, String text);
-	void drawBitmap(int x, int y, uint8_t *bitmap, int w, int h);
-	void drawBaceBitmap(int x, int y, int w, int h, String baceType);
+	void drawRect(int8_t x, int8_t y, int8_t w, int8_t h, int8_t fillFlag);
+	void drawRoundRect(int8_t x, int8_t y, int8_t w, int8_t h, int8_t r, int8_t fillFlag);
+	void drawCircle(int8_t x, int8_t y, int8_t r, int8_t fillFlag);
+	void drawTriangle(int8_t x, int8_t y, int8_t w1, int8_t h1, int8_t w2, int8_t h2, int8_t fillFlag);
+	void drawLine(int8_t x1, int8_t y1, int8_t x2, int8_t y2);
+	void drawPixel(int8_t x, int8_t y);
+	void drawText(int8_t x, int8_t y, String text);
+	void drawBaceBitmap(int8_t x, int8_t y, int8_t w, int8_t h, uint8_t *bitmap);
 
 
 
 private:
 	Adafruit_PCD8544 display = Adafruit_PCD8544(9, 8, 7);
-	MicroSD *memoryPointer;
 
 };
 #endif
