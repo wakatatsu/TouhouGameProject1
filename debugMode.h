@@ -8,8 +8,9 @@ class DebugMode : public Mode{
 public:
 	DebugMode();
 	~DebugMode();
-	void baceCommandTest(std::vector<uint8_t>);
-	void bitMapTest(std::vector<uint8_t>);
+	void baceCommandTest(std::vector<uint8_t> oprnNum);
+	void bitMapTest(std::vector<uint8_t> oprnNum);
+	uint8_t changeModeTest(std::vector<uint8_t> oprnNum);
 
 private:
 

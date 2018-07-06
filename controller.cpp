@@ -4,7 +4,6 @@ Controller::Controller() {
 	buttons.push_back(new Button(4));
 	buttons.push_back(new Button(5));
 	buttons.push_back(new Button(6));
-	//speaker = new Speaker();
 	view = new View();
 	modeManage = new ModeManage(view);
 }
@@ -24,6 +23,6 @@ std::vector<uint8_t> Controller::getOperation() {
 	return buttonNumber;
 }
 
-void Controller::sendOperation(std::vector<uint8_t> oprnNum) {
-	modeManage->sendOperation(oprnNum);
+void Controller::runOperation() {
+	modeManage->sendOperation(getOperation());
 }

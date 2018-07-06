@@ -1,7 +1,7 @@
 #include "debugMode.h"
 
 DebugMode::DebugMode() {
-
+	currentMode = DEBUG;
 }
 
 DebugMode::~DebugMode() {
@@ -34,24 +34,42 @@ void DebugMode::baceCommandTest(std::vector<uint8_t> oprnNum) {
 }
 
 void DebugMode::bitMapTest(std::vector<uint8_t> oprnNum) {
-	//viewPointer->drawBaceBitmap(0, 0, 19, 20, DATA1);
 	for (auto itr : oprnNum) {
 		switch (itr) {
 		case 0:
-			viewPointer->drawBaceBitmap(0, 0, 19, 20, DATA1);
-			viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA2);
+			viewPointer->drawBitmap(0, 0, 19, 20, DATA1);
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA2);
 			break;
 		case 1:
-			viewPointer->drawBaceBitmap(0, 0, 12, 12, DATA3);
-			viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA4);
+			viewPointer->drawBitmap(0, 0, 12, 12, DATA3);
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA4);
 			break;
 		case 2:
-			viewPointer->drawBaceBitmap(0, 0, 12, 12, DATA5);
-			viewPointer->drawBaceBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA6);
-			viewPointer->drawBaceBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, DATA7);
+			viewPointer->drawBitmap(0, 0, 12, 12, DATA5);
+			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA6);
+			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, DATA7);
 			break;
 		default:
 			break;
 		}
 	}
+}
+
+uint8_t DebugMode::changeModeTest(std::vector<uint8_t> oprnNum) {
+	for (auto itr : oprnNum) {
+		switch (itr) {
+			case 0:
+			return DEBUG;
+			break;
+			case 1:
+			return HOME;
+			break;
+			// case 2:
+			// return SELECT;
+			// break;
+			default:
+			break;
+		}
+	}
+	return 0;
 }

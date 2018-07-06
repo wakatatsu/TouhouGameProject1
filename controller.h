@@ -4,7 +4,6 @@
 
 #include "Arduino.h"
 #include "button.h"
-#include "speaker.h"
 #include "view.h"
 #include "modeManage.h"
 
@@ -14,15 +13,15 @@ class Controller {
 public:
 	Controller();
 	void updateView();
-	std::vector<uint8_t> getOperation();
-	void sendOperation(std::vector<uint8_t>);
+	void runOperation();
 
 private:
 	std::vector<Button*> buttons;
 	std::vector<uint8_t> buttonNumber;
-	//Speaker *speaker;
 	View *view;
 	ModeManage *modeManage;
+
+	std::vector<uint8_t> getOperation();
 
 
 };

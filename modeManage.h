@@ -5,13 +5,15 @@
 
 #include "debugMode.h"
 #include "homeMode.h"
+#include "selectMode.h"
 
 class ModeManage : public Mode {
 
 public:
-	ModeManage(View*);
-	void sendOperation(std::vector<uint8_t>);
-	void changeMode(int toMode);
+	ModeManage(View *view);
+	void sendOperation(std::vector<uint8_t> oprnNum);
+private:
+	void changeMode(uint8_t toMode);
 
 
 

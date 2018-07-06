@@ -2,24 +2,57 @@
 
 ModeManage::ModeManage(View *view) {
 	viewPointer = view;
-	currentMode.DebugMode = new DebugMode;
-	//new(&currentMode.DebugMode) DebugMode();
-	//currentMode.HomeMode = new HomeMode();
-  //new(&currentMode.HomeMode) HomeMode();
+	//new(&modes.DebugMode) DebugMode();
+  new(&modes.HomeMode) HomeMode();
 }
 
 
 void ModeManage::sendOperation(std::vector<uint8_t> oprnNum) {
 
-	//currentMode.DebugMode->baceCommandTest(oprnNum);
-	currentMode.DebugMode->bitMapTest(oprnNum);
-	//currentMode.HomeMode->run(oprnNum);
-	//changeMode();
+	switch(currentMode) {
+		case DEBUG:
+		//modes.DebugMode->bitMapTest(oprnNum);
+		changeMode(modes.DebugMode->changeModeTest(oprnNum));
+		break;
+		case HOME:
+		changeMode(modes.HomeMode->run(oprnNum));
+		break;
+		case SELECT:
+		changeMode(modes.SelectMode->run(oprnNum));
+		break;
+		default:
+		break;
+	}
 
 }
 
-void ModeManage::changeMode(int toMode) {
-
-
-
+void ModeManage::changeMode(uint8_t toMode) {
+	if(currentMode != toMode) {
+		switch(currentMode) {
+			case DEBUG:
+			modes.DebugMode->~DebugMode();
+			break;
+			case HOME:
+			modes.HomeMode->~HomeMode();
+			break;
+			case SELECT:
+			modes.SelectMode->~SelectMode();
+			break;
+			default:
+			break;
+		}
+		switch(toMode) {
+			case DEBUG:
+			new(&modes.DebugMode) DebugMode();
+			break;
+			case HOME:
+			new(&modes.HomeMode) HomeMode();
+			break;
+			case SELECT:
+			new(&modes.SelectMode) SelectMode();
+			break;
+			default:
+			break;
+		}
+	}
 }

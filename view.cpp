@@ -64,14 +64,31 @@ void View::drawText(int8_t x, int8_t y, String text) {
 	display.println(text);
 }
 
-void View::drawBaceBitmap(int8_t x, int8_t y, int8_t w, int8_t h, uint8_t *bitmap) {
+void View::drawBitmap(int8_t x, int8_t y, int8_t w, int8_t h, uint8_t *bitmap, uint8_t drawtype = 0) {
 	int count = 0;
 	uint8_t data = 0;
 	for (int8_t i = 0; i < h; i++) {
 		for (int8_t j = 0; j < w; j++) {
 			data = pgm_read_byte(bitmap + count);
 			if (data == 1) {
-				drawPixel(x + j, y + i);
+				switch(drawtype) {
+					case 0:
+					drawPixel(x + j, y + i);//default
+					break;
+					case 1:
+					drawPixel(x + ((w-1)-j), y + i);//left and right reverse
+					break;
+					case 2:
+					drawPixel(x + j, y + ((h-1)-i));//up and down reverse
+					break;
+					case 3:
+					drawPixel(x + ((w-1)-j), y + ((h-1)-i));//up,down,left and right reverse
+					break;
+					default:
+					break;
+				}
+
+
 			}
 			count++;
 		}
