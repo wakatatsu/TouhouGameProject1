@@ -55,7 +55,7 @@ void DebugMode::bitMapTest(std::vector<uint8_t> oprnNum) {
 	}
 }
 
-uint8_t DebugMode::changeModeTest(std::vector<uint8_t> oprnNum) {
+int8_t DebugMode::changeModeTest(std::vector<uint8_t> oprnNum) {
 	for (auto itr : oprnNum) {
 		switch (itr) {
 			case 0:
@@ -71,5 +71,21 @@ uint8_t DebugMode::changeModeTest(std::vector<uint8_t> oprnNum) {
 			break;
 		}
 	}
-	return 0;
+	return -1;
+}
+
+int8_t DebugMode::mp3Test(std::vector<uint8_t> oprnNum) {
+	for (auto itr : oprnNum) {
+		switch (itr) {
+			case 0:
+			case 1:
+			case 2:
+			DFPlayerPointer->playMP3(2);
+			break;
+			default:
+			break;
+		}
+	}
+	Serial.println(F("on"));
+	return -1;
 }

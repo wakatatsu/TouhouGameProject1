@@ -27,7 +27,7 @@ public:
 
 
 private:
-	Adafruit_PCD8544 display = Adafruit_PCD8544(9, 8, 7);
+	Adafruit_PCD8544 display = Adafruit_PCD8544(7, 6, 5);
 
 };
 #endif

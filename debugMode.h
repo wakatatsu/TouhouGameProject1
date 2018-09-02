@@ -10,7 +10,8 @@ public:
 	~DebugMode();
 	void baceCommandTest(std::vector<uint8_t> oprnNum);
 	void bitMapTest(std::vector<uint8_t> oprnNum);
-	uint8_t changeModeTest(std::vector<uint8_t> oprnNum);
+	int8_t changeModeTest(std::vector<uint8_t> oprnNum);
+	int8_t mp3Test(std::vector<uint8_t> oprnNum);
 
 private:
 

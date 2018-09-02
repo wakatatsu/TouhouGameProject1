@@ -14,7 +14,7 @@ HomeMode::~HomeMode() {
 
 uint8_t HomeMode::run(std::vector<uint8_t> oprnNum) {
   uint8_t moveFlag = 0;
-  
+
   //moveFlag
   if(random(1000) % 200 == 0) {
     moveFlag = 1;
@@ -41,7 +41,8 @@ uint8_t HomeMode::run(std::vector<uint8_t> oprnNum) {
       case 0:
       case 1:
       case 2:
-      return SELECT;//move SelectMode
+      DFPlayerPointer-> playMP3(2);
+      //return SELECT;//move SelectMode
       break;
       default:
       break;

@@ -10,6 +10,7 @@
 #include "view.h"
 #include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
 #include <vector>
+#include "DFPlayer.h"
 
 class DebugMode;
 class HomeMode;
@@ -28,10 +29,11 @@ protected:
 		DebugMode *DebugMode;
 		HomeMode *HomeMode;
 		SelectMode *SelectMode;
-		
+
 		Modes() : DebugMode(NULL) {}
 		~Modes() {}
 	}modes;
+	static DFPlayer *DFPlayerPointer;
 
 };
 #endif

@@ -17,6 +17,6 @@ void loop() {
   cntl->updateView();//update display
   cntl->runOperation();//run operation
   stepcount->run();
-  
+
 
 }

@@ -1,9 +1,9 @@
 #include "controller.h"
 
 Controller::Controller() {
+	buttons.push_back(new Button(2));
+	buttons.push_back(new Button(3));
 	buttons.push_back(new Button(4));
-	buttons.push_back(new Button(5));
-	buttons.push_back(new Button(6));
 	view = new View();
 	modeManage = new ModeManage(view);
 }
