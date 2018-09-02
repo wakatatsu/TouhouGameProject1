@@ -13,13 +13,25 @@ void Controller::updateView() {
 }
 
 std::vector<uint8_t> Controller::getOperation() {
-	uint8_t offsetNumber = buttons[0]->getPin();
 	buttonNumber.clear();
+	uint8_t offsetNumber = buttons[0]->getPin();
 	for (auto itr : buttons) {
 		if (itr->getValue() == HIGH) {
-			buttonNumber.push_back(itr->getPin() - offsetNumber);
+			if(!buttonFlag) {
+				buttonNumber.push_back(itr->getPin() - offsetNumber);
+			}
+		}
+		else {
+			buttonCount++;
 		}
 	}
+	if(buttonCount < buttons.size()) {
+		buttonFlag = 1;
+	}
+	else {
+		buttonFlag = 0;
+	}
+	buttonCount = 0;
 	return buttonNumber;
 }
 

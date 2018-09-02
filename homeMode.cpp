@@ -42,7 +42,7 @@ uint8_t HomeMode::run(std::vector<uint8_t> oprnNum) {
       case 1:
       case 2:
       DFPlayerPointer-> playMP3(2);
-      //return SELECT;//move SelectMode
+      return SELECT;//move SelectMode
       break;
       default:
       break;

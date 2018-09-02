@@ -20,6 +20,8 @@ private:
 	std::vector<uint8_t> buttonNumber;
 	View *view;
 	ModeManage *modeManage;
+	uint8_t buttonFlag = 0;
+	uint8_t buttonCount = 0;
 
 	std::vector<uint8_t> getOperation();
 
