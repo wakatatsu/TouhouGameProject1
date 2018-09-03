@@ -30,25 +30,24 @@ For more information, see `awesome-tool --help`.
 
 追加使用ライブラリ
 - Adafruit-GFX-Library
-- $ git clone https://github.com/adafruit/Adafruit-GFX-Library.git
+	- $ git clone https://github.com/adafruit/Adafruit-GFX-Library.git
 
 - Adafruit_PCD8544_Nokia_5110_LCD_library
-- $ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
+	- $ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
 
 - StandardCplusplus
-- $ git clone https://github.com/maniacbug/StandardCplusplus.git
-- $ git clone https://github.com/adafruit/Adafruit-GFX-Library.git
+	- $ git clone https://github.com/maniacbug/StandardCplusplus.git
+	- $ git clone https://github.com/adafruit/Adafruit-GFX-Library.git
 
 - Adafruit_PCD8544_Nokia_5110_LCD_library
-- $ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
+	- $ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
 
 - StandardCplusplus
-- $ git clone https://github.com/maniacbug/StandardCplusplus.git
+	- $ git clone https://github.com/maniacbug/StandardCplusplus.git
 
 - DFRobotDFPlayerMini
-- $ git clone https://github.com/DFRobot/DFRobotDFPlayerMini.git
-
-- [DFPlayer Mini SKU:DFR0299](https://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299)
+	- $ git clone https://github.com/DFRobot/DFRobotDFPlayerMini.git
+	- [DFPlayer Mini SKU:DFR0299](https://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299)
 
 ## Anything Else(他に何か)
 
