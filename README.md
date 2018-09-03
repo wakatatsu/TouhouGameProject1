@@ -47,7 +47,7 @@ For more information, see `awesome-tool --help`.
 
 - DFRobotDFPlayerMini
 	- $ git clone https://github.com/DFRobot/DFRobotDFPlayerMini.git
-	- [DFPlayer Mini SKU:DFR0299](https://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299)
+	- [DFPlayer](https://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299)
 
 ## Anything Else(他に何か)
 
