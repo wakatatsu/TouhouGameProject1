@@ -48,6 +48,7 @@ For more information, see `awesome-tool --help`.
 - DFRobotDFPlayerMini
 	- $ git clone https://github.com/DFRobot/DFRobotDFPlayerMini.git
 	- [DFPlayer](https://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299)
+	- [参考](https://stonez56.blogspot.com/2015/03/arduino-dfplayer-mini-mp3-module.html)
 
 ## Anything Else(他に何か)
 
