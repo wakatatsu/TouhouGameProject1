@@ -88,3 +88,48 @@ int8_t DebugMode::mp3Test(std::vector<uint8_t> oprnNum) {
 	}
 	return DEBUG;
 }
+
+//variable used in testGame
+int8_t DebugMode::playerX = 5;
+int DebugMode::playerY = LCDHEIGHT-21;
+int8_t DebugMode::jumpFlag = 0;
+int DebugMode::t = 0;
+
+int8_t DebugMode::testGame(std::vector<uint8_t> oprnNum) {
+
+	viewPointer->drawBitmap(playerX, playerY, 19, 20, DATA1, 1);
+
+	viewPointer->drawLine(0, LCDHEIGHT-1, LCDWIDTH, LCDHEIGHT-1);
+	viewPointer->drawRect(LCDWIDTH / 3, LCDHEIGHT-3, 9, 3, 1);
+
+	if(jumpFlag) {
+		jumpPlayer();
+	}
+
+	for (auto itr : oprnNum) {
+		//all jump button
+		switch (itr) {
+			case 0:
+			case 1:
+			case 2:
+			DFPlayerPointer->playMP3(2);
+			jumpFlag = 1;
+			break;
+			default:
+			break;
+		}
+	}
+	return DEBUG;
+}
+
+void DebugMode::jumpPlayer() {
+	t++;
+//	playerY = (LCDHEIGHT-21) - (2*(t/10)-1*(t/10)^2);
+  playerY = (LCDHEIGHT-21) - (5 - t/10);
+
+	if(playerY > LCDHEIGHT-21 || playerY < 0) {
+		playerY = LCDHEIGHT-21;
+		jumpFlag = 0;
+		t = 0;
+	}
+}

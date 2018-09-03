@@ -3,8 +3,8 @@
 ModeManage::ModeManage(View *view) {
 	viewPointer = view;
 	DFPlayerPointer = new DFPlayer();
-	//new(&modes.DebugMode) DebugMode();
-  new(&modes.HomeMode) HomeMode();
+	new(&modes.DebugMode) DebugMode();
+  // new(&modes.HomeMode) HomeMode();
 }
 
 
@@ -12,9 +12,9 @@ void ModeManage::sendOperation(std::vector<uint8_t> oprnNum) {
 
 	switch(currentMode) {
 		case DEBUG:
-		//modes.DebugMode->bitMapTest(oprnNum);
 		//changeMode(modes.DebugMode->changeModeTest(oprnNum));
-		changeMode(modes.DebugMode->mp3Test(oprnNum));
+		//changeMode(modes.DebugMode->mp3Test(oprnNum));
+		changeMode(modes.DebugMode->testGame(oprnNum));
 		break;
 		case HOME:
 		changeMode(modes.HomeMode->run(oprnNum));

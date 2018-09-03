@@ -1,4 +1,4 @@
-#include "selectMode.h";
+#include "selectMode.h"
 
 uint8_t SelectMode::selectModeIcon = 1;
 
