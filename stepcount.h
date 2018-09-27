@@ -25,6 +25,7 @@ private:
   float threshold = 0;//閾値
   float hysteresis = 0;//ヒステリシス
   void readADXL345();
+  void xyz_synthesis();
   void processeThreshold();
 };
 

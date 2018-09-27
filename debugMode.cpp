@@ -12,20 +12,20 @@ void DebugMode::baceCommandTest(std::vector<uint8_t> oprnNum) {
 	for (auto itr : oprnNum) {
 		switch (itr) {
 			case 0:
-			viewPointer->drawRect(LCDWIDTH / 3, LCDHEIGHT / 3, 9, 9, 0);
-			viewPointer->drawRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 3, 9, 9, 1);
-			viewPointer->drawRoundRect(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, 9, 9, 3, 0);
-			viewPointer->drawRoundRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 9, 9, 3, 1);
+			cntl->view->drawRect(LCDWIDTH / 3, LCDHEIGHT / 3, 9, 9, 0);
+			cntl->view->drawRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 3, 9, 9, 1);
+			cntl->view->drawRoundRect(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, 9, 9, 3, 0);
+			cntl->view->drawRoundRect(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 9, 9, 3, 1);
 			break;
 			case 1:
-			viewPointer->drawCircle(LCDWIDTH / 3, LCDHEIGHT / 3, 5, 0);
-			viewPointer->drawCircle(LCDWIDTH / 3 * 2, LCDHEIGHT / 3, 5, 1);
-			viewPointer->drawTriangle(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, 5, 5, 3, 3, 0);
-			viewPointer->drawTriangle(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 5, 5, 3, 3, 1);
+			cntl->view->drawCircle(LCDWIDTH / 3, LCDHEIGHT / 3, 5, 0);
+			cntl->view->drawCircle(LCDWIDTH / 3 * 2, LCDHEIGHT / 3, 5, 1);
+			cntl->view->drawTriangle(LCDWIDTH / 3, LCDHEIGHT / 3 * 2, 5, 5, 3, 3, 0);
+			cntl->view->drawTriangle(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 5, 5, 3, 3, 1);
 			break;
 			case 2:
-			viewPointer->drawLine(LCDWIDTH / 3, LCDHEIGHT / 3, LCDWIDTH / 3 * 2, LCDHEIGHT / 3);
-			viewPointer->drawText(LCDWIDTH / 2, LCDHEIGHT / 3*2, "Test");
+			cntl->view->drawLine(LCDWIDTH / 3, LCDHEIGHT / 3, LCDWIDTH / 3 * 2, LCDHEIGHT / 3);
+			cntl->view->drawText(LCDWIDTH / 2, LCDHEIGHT / 3*2, "Test");
 			break;
 			default:
 			break;
@@ -37,17 +37,17 @@ void DebugMode::bitMapTest(std::vector<uint8_t> oprnNum) {
 	for (auto itr : oprnNum) {
 		switch (itr) {
 			case 0:
-			viewPointer->drawBitmap(0, 0, 19, 20, DATA1);
-			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA2);
+			cntl->view->drawBitmap(0, 0, 19, 20, DATA1);
+			cntl->view->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA2);
 			break;
 			case 1:
-			viewPointer->drawBitmap(0, 0, 12, 12, DATA3);
-			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA4);
+			cntl->view->drawBitmap(0, 0, 12, 12, DATA3);
+			cntl->view->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA4);
 			break;
 			case 2:
-			viewPointer->drawBitmap(0, 0, 12, 12, DATA5);
-			viewPointer->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA6);
-			viewPointer->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, DATA7);
+			cntl->view->drawBitmap(0, 0, 12, 12, DATA5);
+			cntl->view->drawBitmap(LCDWIDTH / 3, LCDHEIGHT / 3, 12, 12, DATA6);
+			cntl->view->drawBitmap(LCDWIDTH / 3 * 2, LCDHEIGHT / 3 * 2, 12, 12, DATA7);
 			break;
 			default:
 			break;
@@ -80,7 +80,7 @@ int8_t DebugMode::mp3Test(std::vector<uint8_t> oprnNum) {
 			case 0:
 			case 1:
 			case 2:
-			DFPlayerPointer->playMP3(2);
+			cntl->soundplayer->playMP3(2);
 			break;
 			default:
 			break;
@@ -97,10 +97,10 @@ int DebugMode::t = 0;
 
 int8_t DebugMode::testGame(std::vector<uint8_t> oprnNum) {
 
-	viewPointer->drawBitmap(playerX, playerY, 19, 20, DATA1, 1);
+	cntl->view->drawBitmap(playerX, playerY, 19, 20, DATA1, 1);
 
-	viewPointer->drawLine(0, LCDHEIGHT-1, LCDWIDTH, LCDHEIGHT-1);
-	viewPointer->drawRect(LCDWIDTH / 3, LCDHEIGHT-3, 9, 3, 1);
+	cntl->view->drawLine(0, LCDHEIGHT-1, LCDWIDTH, LCDHEIGHT-1);
+	cntl->view->drawRect(LCDWIDTH / 3, LCDHEIGHT-3, 9, 3, 1);
 
 	if(jumpFlag) {
 		jumpPlayer();
@@ -112,7 +112,7 @@ int8_t DebugMode::testGame(std::vector<uint8_t> oprnNum) {
 			case 0:
 			case 1:
 			case 2:
-			DFPlayerPointer->playMP3(2);
+			cntl->soundplayer->playMP3(2);
 			jumpFlag = 1;
 			break;
 			default:

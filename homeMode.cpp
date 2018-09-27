@@ -26,10 +26,10 @@ uint8_t HomeMode::run(std::vector<uint8_t> oprnNum) {
   }
   //draw
   if(drawtypeFlag == 0) {
-    viewPointer->drawBitmap(count, LCDHEIGHT/2, 19, 20, DATA1, 0);
+    cntl->view->drawBitmap(count, LCDHEIGHT/2, 19, 20, DATA1, 0);
   }
   else {
-    viewPointer->drawBitmap(count, LCDHEIGHT/2, 19, 20, DATA1, 1);
+    cntl->view->drawBitmap(count, LCDHEIGHT/2, 19, 20, DATA1, 1);
   }
   //let not over the display edge
   if(count >= LCDWIDTH - 19) {count = LCDWIDTH - 19;}
@@ -41,7 +41,7 @@ uint8_t HomeMode::run(std::vector<uint8_t> oprnNum) {
       case 0:
       case 1:
       case 2:
-      DFPlayerPointer-> playMP3(2);
+      cntl->soundplayer-> playMP3(2);
       return SELECT;//move SelectMode
       break;
       default:

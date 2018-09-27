@@ -1,22 +1,22 @@
 #include "controller.h"
-#include "stepcount.h"
+#include "modeManage.h"
 
 Controller *cntl;
-StepCount *stepcount;
+ModeManage *mdmg;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   cntl = new Controller();
-  stepcount = new StepCount();
+  mdmg = new ModeManage(cntl);
 
 }
 
 void loop() {
 
   cntl->updateView();//update display
-  cntl->runOperation();//run operation
-  stepcount->run();
+  cntl->updateStep();//update step
+  mdmg->runOperation();//run operation
 
 
 }

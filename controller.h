@@ -3,9 +3,13 @@
 
 
 #include "Arduino.h"
+//#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
+#include "ArduinoSTL.h"
+#include <vector>
 #include "button.h"
+#include "DFPlayer.h"
+#include "stepcount.h"
 #include "view.h"
-#include "modeManage.h"
 
 
 class Controller {
@@ -13,17 +17,17 @@ class Controller {
 public:
 	Controller();
 	void updateView();
-	void runOperation();
+	void updateStep();
+	std::vector<uint8_t> getOperation();
+  DFPlayer *soundplayer;
+  View *view;
 
 private:
 	std::vector<Button*> buttons;
 	std::vector<uint8_t> buttonNumber;
-	View *view;
-	ModeManage *modeManage;
+	StepCount *stepcount;
 	uint8_t buttonFlag = 0;
 	uint8_t buttonCount = 0;
-
-	std::vector<uint8_t> getOperation();
 
 
 };

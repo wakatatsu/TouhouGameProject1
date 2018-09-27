@@ -6,6 +6,7 @@ StepCount::StepCount() {
 
 void StepCount:: run() {
   readADXL345();
+  xyz_synthesis();
   processeThreshold();
 }
 
@@ -23,6 +24,9 @@ void StepCount::readADXL345() {
   x  = ((int)values[1]<<8)|(int)values[0];
   y  = ((int)values[3]<<8)|(int)values[2];
   z  = ((int)values[5]<<8)|(int)values[4];
+}
+
+void StepCount::xyz_synthesis() {
   accel = sqrt( sq(x) + sq(y) + sq(z) );
 }
 

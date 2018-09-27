@@ -1,12 +1,13 @@
 #include "mode.h"
 #include "debugMode.h"
-#include "homeMode.h"
-#include "selectMode.h"
+// #include "homeMode.h"
+// #include "selectMode.h"
+// #include "statusMode.h"
+// #include "mealMode.h"
 
+Controller* Mode::cntl;
 uint8_t Mode::currentMode;
-View* Mode::viewPointer;
 Mode::Modes Mode::modes;
-DFPlayer* Mode::DFPlayerPointer;
 
 Mode::Mode() {
 

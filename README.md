@@ -1,6 +1,6 @@
 # TouhouGameProject1
 
-たまごっちの東方projectバージョン？おもちゃ
+ポケット東方project(仮)？おもちゃ
 
 ## Description(説明)
 
@@ -35,15 +35,8 @@ For more information, see `awesome-tool --help`.
 - Adafruit_PCD8544_Nokia_5110_LCD_library
 	- $ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
 
-- StandardCplusplus
-	- $ git clone https://github.com/maniacbug/StandardCplusplus.git
-	- $ git clone https://github.com/adafruit/Adafruit-GFX-Library.git
-
-- Adafruit_PCD8544_Nokia_5110_LCD_library
-	- $ git clone https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library.git
-
-- StandardCplusplus
-	- $ git clone https://github.com/maniacbug/StandardCplusplus.git
+-	ArduinoSTL
+	- $ git clone https://github.com/mike-matera/ArduinoSTL.git
 
 - DFRobotDFPlayerMini
 	- $ git clone https://github.com/DFRobot/DFRobotDFPlayerMini.git
@@ -52,8 +45,8 @@ For more information, see `awesome-tool --help`.
 
 ## Anything Else(他に何か)
 
-特にないよ
+フォルダ分けするとエラー出るためフォルダ分けしていません
 
 ## Author(著者)
 
-from[フウザサさん](http://seiga.nicovideo.jp/seiga/im6459594)
+基本モデル from[フウザサさん](http://seiga.nicovideo.jp/seiga/im6459594)

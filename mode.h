@@ -7,14 +7,8 @@
 #define STATUS 3
 #define MEAL 4
 
-#include "view.h"
-#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
-#include <vector>
-#include "DFPlayer.h"
-
-class DebugMode;
-class HomeMode;
-class SelectMode;
+#include "controller.h"
+// #include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
 
 class Mode {
 
@@ -23,17 +17,17 @@ public:
 	~Mode();
 
 protected:
+	static Controller *cntl;
 	static uint8_t currentMode;
-	static View *viewPointer;
 	static union Modes {
-		DebugMode *DebugMode;
-		HomeMode *HomeMode;
-		SelectMode *SelectMode;
-
+		class DebugMode *DebugMode;
+		// class HomeMode *HomeMode;
+		// class SelectMode *SelectMode;
+		// class StatusMode *StatusMode;
+		// class MealMode *MealMode;
 		Modes() : DebugMode(NULL) {}
 		~Modes() {}
 	}modes;
-	static DFPlayer *DFPlayerPointer;
 
 };
 #endif

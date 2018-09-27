@@ -2,12 +2,9 @@
 #define VIEW_H_INCLUDE
 
 #include "Arduino.h"
-//#include <avr/pgmspace.h>//PROGMEM need to use(used"drawBitmap")
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
-//#include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
-//#include <vector>
 #include "bitmapData.h"
 
 class View {

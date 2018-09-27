@@ -3,7 +3,7 @@
 
 #include "mode.h"
 
-class DebugMode : public Mode{
+class DebugMode : public Mode {
 
 public:
 	DebugMode();

@@ -4,8 +4,9 @@ Controller::Controller() {
 	buttons.push_back(new Button(2));
 	buttons.push_back(new Button(3));
 	buttons.push_back(new Button(4));
+	soundplayer = new DFPlayer();
 	view = new View();
-	modeManage = new ModeManage(view);
+	stepcount = new StepCount();
 }
 
 void Controller::updateView() {
@@ -35,6 +36,6 @@ std::vector<uint8_t> Controller::getOperation() {
 	return buttonNumber;
 }
 
-void Controller::runOperation() {
-	modeManage->sendOperation(getOperation());
+void Controller::updateStep() {
+	stepcount->run();
 }
