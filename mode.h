@@ -21,10 +21,10 @@ protected:
 	static uint8_t currentMode;
 	static union Modes {
 		class DebugMode *DebugMode;
-		// class HomeMode *HomeMode;
-		// class SelectMode *SelectMode;
-		// class StatusMode *StatusMode;
-		// class MealMode *MealMode;
+		class HomeMode *HomeMode;
+		class SelectMode *SelectMode;
+		class StatusMode *StatusMode;
+		class MealMode *MealMode;
 		Modes() : DebugMode(NULL) {}
 		~Modes() {}
 	}modes;

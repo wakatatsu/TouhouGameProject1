@@ -3,6 +3,10 @@
 
 #include "mode.h"
 #include "debugMode.h"
+#include "homeMode.h"
+#include "selectMode.h"
+#include "statusMode.h"
+#include "mealMode.h"
 
 class ModeManage : public Mode {
 

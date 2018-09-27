@@ -2,8 +2,8 @@
 
 ModeManage::ModeManage(Controller *cntlPointer) {
 	cntl = cntlPointer;
-	new(&modes.DebugMode) DebugMode();
-  // new(&modes.HomeMode) HomeMode();
+	// new(&modes.DebugMode) DebugMode();
+  new(&modes.HomeMode) HomeMode();
 }
 
 void ModeManage::runOperation() {
@@ -16,16 +16,16 @@ void ModeManage::sendOperation(std::vector<uint8_t> oprnNum) {
 		changeMode(modes.DebugMode->testGame(oprnNum));
 		break;
 		case HOME:
-		// changeMode(modes.HomeMode->run(oprnNum));
+		changeMode(modes.HomeMode->run(oprnNum));
 		break;
 		case SELECT:
-		// changeMode(modes.SelectMode->run(oprnNum));
+		changeMode(modes.SelectMode->run(oprnNum));
 		break;
 		case STATUS:
-		// changeMode(modes.StatusMode->run(oprnNum));
+		changeMode(modes.StatusMode->run(oprnNum));
 		break;
 		case MEAL:
-		// changeMode(modes.MealMode->run(oprnNum));
+		changeMode(modes.MealMode->run(oprnNum));
 		break;
 		default:
 		break;
@@ -45,16 +45,16 @@ void ModeManage::deleatMode() {
 		modes.DebugMode->~DebugMode();
 		break;
 		case HOME:
-		// modes.HomeMode->~HomeMode();
+		modes.HomeMode->~HomeMode();
 		break;
 		case SELECT:
-		// modes.SelectMode->~SelectMode();
+		modes.SelectMode->~SelectMode();
 		break;
 		case STATUS:
-		// modes.StatusMode->~StatusMode();
+		modes.StatusMode->~StatusMode();
 		break;
 		case MEAL:
-		// modes.MealMode->~MealMode();
+		modes.MealMode->~MealMode();
 		break;
 		default:
 		break;
@@ -67,16 +67,16 @@ void ModeManage::createMode(uint8_t toMode) {
 		new(&modes.DebugMode) DebugMode();
 		break;
 		case HOME:
-		// new(&modes.HomeMode) HomeMode();
+		new(&modes.HomeMode) HomeMode();
 		break;
 		case SELECT:
-		// new(&modes.SelectMode) SelectMode();
+		new(&modes.SelectMode) SelectMode();
 		break;
 		case STATUS:
-		// new(&modes.StatusMode) StatusMode();
+		new(&modes.StatusMode) StatusMode();
 		break;
 		case MEAL:
-		// new(&modes.MealMode) MealMode();
+		new(&modes.MealMode) MealMode();
 		break;
 		default:
 		break;
