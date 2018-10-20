@@ -3,6 +3,8 @@
 
 #include "mode.h"
 
+#define STATUS_MAX_NUM 3
+
 class StatusMode : public Mode {
 
 public:
@@ -11,6 +13,8 @@ public:
 	uint8_t run(std::vector<uint8_t> oprnNum);
 
 private:
-	
+	uint8_t selectPointer;
+	void viewStatus();
+
 };
 #endif

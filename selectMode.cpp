@@ -1,9 +1,8 @@
 #include "selectMode.h"
 
-uint8_t SelectMode::selectModeIcon = 1;
-
 SelectMode::SelectMode() {
   currentMode = SELECT;
+  selectModeIcon = 1;
 }
 
 SelectMode::~SelectMode() {
@@ -32,7 +31,7 @@ uint8_t SelectMode::run(std::vector<uint8_t> oprnNum) {
       cntl->soundplayer->playMP3(2);
       selectModeIcon++;
       //protect not to exceed select
-      if(selectModeIcon == 0 || selectModeIcon == 2) {
+      if(selectModeIcon == DEBUG || selectModeIcon == SELECT) {
         selectModeIcon++;
       }
       if(selectModeIcon > MEAL) {

@@ -11,7 +11,7 @@ public:
 	uint8_t run(std::vector<uint8_t> oprnNum);
 
 private:
-	static uint8_t selectModeIcon;
+	uint8_t selectModeIcon;
 	// uint8_t selectModeIcon;
 
 

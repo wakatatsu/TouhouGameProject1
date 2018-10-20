@@ -2,8 +2,8 @@
 
 ModeManage::ModeManage(Controller *cntlPointer) {
 	cntl = cntlPointer;
-	// new(&modes.DebugMode) DebugMode();
-  new(&modes.HomeMode) HomeMode();
+	new(&modes.DebugMode) DebugMode();
+  //new(&modes.HomeMode) HomeMode();
 }
 
 void ModeManage::runOperation() {

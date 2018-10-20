@@ -17,7 +17,7 @@ public:
 private:
 	//variable used in testGame
 	static int8_t playerX;
-	static int playerY;
+	static int8_t playerY;
 	static int8_t jumpFlag;
 	static int t;
 	void jumpPlayer();

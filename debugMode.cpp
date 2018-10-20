@@ -80,7 +80,7 @@ int8_t DebugMode::mp3Test(std::vector<uint8_t> oprnNum) {
 			case 0:
 			case 1:
 			case 2:
-			cntl->soundplayer->playMP3(2);
+			cntl->soundplayer->playMP3(3);
 			break;
 			default:
 			break;
@@ -91,14 +91,16 @@ int8_t DebugMode::mp3Test(std::vector<uint8_t> oprnNum) {
 
 //variable used in testGame
 int8_t DebugMode::playerX = 5;
-int DebugMode::playerY = LCDHEIGHT-21;
+int8_t DebugMode::playerY = LCDHEIGHT-21;
 int8_t DebugMode::jumpFlag = 0;
 int DebugMode::t = 0;
 
 int8_t DebugMode::testGame(std::vector<uint8_t> oprnNum) {
 
+//view charactor
 	cntl->view->drawBitmap(playerX, playerY, 19, 20, DATA1, 1);
 
+// ground + box
 	cntl->view->drawLine(0, LCDHEIGHT-1, LCDWIDTH, LCDHEIGHT-1);
 	cntl->view->drawRect(LCDWIDTH / 3, LCDHEIGHT-3, 9, 3, 1);
 
@@ -106,14 +108,18 @@ int8_t DebugMode::testGame(std::vector<uint8_t> oprnNum) {
 		jumpPlayer();
 	}
 
+	Serial.print(F("playerY = "));
+	Serial.println(playerY);
+
+
 	for (auto itr : oprnNum) {
 		//all jump button
 		switch (itr) {
 			case 0:
 			case 1:
 			case 2:
-			cntl->soundplayer->playMP3(2);
 			jumpFlag = 1;
+			cntl->soundplayer->playMP3(2);
 			break;
 			default:
 			break;
@@ -124,12 +130,14 @@ int8_t DebugMode::testGame(std::vector<uint8_t> oprnNum) {
 
 void DebugMode::jumpPlayer() {
 	t++;
-//	playerY = (LCDHEIGHT-21) - (2*(t/10)-1*(t/10)^2);
-  playerY = (LCDHEIGHT-21) - (5 - t/10);
+// playerY = (LCDHEIGHT-21) - (2*(t/10)-1*(t/10)^2);
+// playerY += -g*t+v0;
+  playerY = (LCDHEIGHT-21) - (6 - t/10);
 
 	if(playerY > LCDHEIGHT-21 || playerY < 0) {
-		playerY = LCDHEIGHT-21;
+		// playerY = LCDHEIGHT-21;
 		jumpFlag = 0;
 		t = 0;
 	}
+	delay(1000);
 }
