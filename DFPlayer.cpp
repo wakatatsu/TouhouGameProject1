@@ -4,7 +4,7 @@ DFPlayer::DFPlayer() {
   extraSerial.begin(9600);
   if (!myDFPlayer.begin(extraSerial)) {  //Use softwareSerial to communicate with mp3.
     while(true){
-      Serial.println(F("error"));
+      Serial.println(F("DFPlayer error"));
       delay(1000);
       //may want to need auto reset function
     }

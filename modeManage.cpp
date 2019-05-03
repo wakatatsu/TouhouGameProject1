@@ -2,24 +2,28 @@
 
 ModeManage::ModeManage(Controller *cntlPointer) {
 	cntl = cntlPointer;
+	viewWidth = cntl->view->width();
+	viewHeight = cntl->view->height();
+  // new(&modes.HomeMode) HomeMode();
 	new(&modes.DebugMode) DebugMode();
-  //new(&modes.HomeMode) HomeMode();
+	Serial.println(F("ModeManage Initialized"));
 }
 
 void ModeManage::runOperation() {
 	sendOperation(cntl->getOperation());
 }
 
-void ModeManage::sendOperation(std::vector<uint8_t> oprnNum) {
+void ModeManage::sendOperation(std::vector<int8_t> oprnNum) {
+
+	// Serial.println(currentMode);
+
 	switch(currentMode) {
 		case DEBUG:
-		changeMode(modes.DebugMode->testGame(oprnNum));
+		changeMode(modes.DebugMode->displayTest(oprnNum));
+		// changeMode(modes.DebugMode->testGame(oprnNum));
 		break;
 		case HOME:
 		changeMode(modes.HomeMode->run(oprnNum));
-		break;
-		case SELECT:
-		changeMode(modes.SelectMode->run(oprnNum));
 		break;
 		case STATUS:
 		changeMode(modes.StatusMode->run(oprnNum));
@@ -27,12 +31,14 @@ void ModeManage::sendOperation(std::vector<uint8_t> oprnNum) {
 		case MEAL:
 		changeMode(modes.MealMode->run(oprnNum));
 		break;
+		//case SETTING:
+		//changeMode(modes.SettingMode->run(oprnNum));
 		default:
 		break;
 	}
 }
 
-void ModeManage::changeMode(uint8_t toMode) {
+void ModeManage::changeMode(int8_t toMode) {
 	if(currentMode != toMode) {
 		deleatMode();
 		createMode(toMode);
@@ -47,9 +53,6 @@ void ModeManage::deleatMode() {
 		case HOME:
 		modes.HomeMode->~HomeMode();
 		break;
-		case SELECT:
-		modes.SelectMode->~SelectMode();
-		break;
 		case STATUS:
 		modes.StatusMode->~StatusMode();
 		break;
@@ -61,16 +64,13 @@ void ModeManage::deleatMode() {
 	}
 }
 
-void ModeManage::createMode(uint8_t toMode) {
+void ModeManage::createMode(int8_t toMode) {
 	switch(toMode) {
 		case DEBUG:
 		new(&modes.DebugMode) DebugMode();
 		break;
 		case HOME:
 		new(&modes.HomeMode) HomeMode();
-		break;
-		case SELECT:
-		new(&modes.SelectMode) SelectMode();
 		break;
 		case STATUS:
 		new(&modes.StatusMode) StatusMode();

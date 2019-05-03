@@ -7,12 +7,16 @@ class Button {
 
   public:
     Button();
-    Button(uint8_t);
-    uint8_t getValue();
-	  uint8_t getPin();
+    Button(int8_t);
+    void writeMode();
+    int8_t getValue();
+    void setValue(int8_t);
+	  int8_t getPin();
 
   private:
-    uint8_t pinNumber;
+    static const int8_t usedPin[10];
+    int8_t pinNumber;
+    int8_t checkOverlap(int8_t);
 
 };
 

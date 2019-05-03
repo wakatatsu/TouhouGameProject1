@@ -8,11 +8,17 @@ class HomeMode : public Mode {
 public:
 	HomeMode();
 	~HomeMode();
-	uint8_t run(std::vector<uint8_t> oprnNum);
+	int8_t run(std::vector<int8_t> oprnNum);
 
 private:
-	static int8_t count;
-	static uint8_t drawtypeFlag;
+	int8_t drawX;
+	int8_t drawtypeFlag;
+	int8_t moveFlag;
+	int8_t selectModeIcon;
+	void initMove();
+	void initSelect();
+	void randomMove();
+	void selectMode(std::vector<int8_t> oprnNum);
 
 
 };

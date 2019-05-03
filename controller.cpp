@@ -1,21 +1,48 @@
 #include "controller.h"
 
 Controller::Controller() {
+
+	// backLight = new Button(A0);
+	// backLight->writeMode();
+	// backLight->setValue(1);
+	initButton();
+	initDisplay();
+	// initSensor();
+	// initDFPlayer();
+	Serial.println(F("Controller Initialized"));
+}
+
+void Controller::initButton() {
 	buttons.push_back(new Button(2));
 	buttons.push_back(new Button(3));
 	buttons.push_back(new Button(4));
-	soundplayer = new DFPlayer();
-	view = new View();
-	stepcount = new StepCount();
+	offsetNumber = buttons[0]->getPin();
+	buttonFlag = 0;
+	buttonCount = 0;
+	Serial.println(F("button ok"));
 }
 
-void Controller::updateView() {
-	view->update();
+void Controller::initDFPlayer() {
+	soundplayer = new DFPlayer();//use pin(8), pin(9)
+	Serial.println(F("DFPlayer ok"));
 }
 
-std::vector<uint8_t> Controller::getOperation() {
+void Controller::initDisplay() {
+	view = new View();//use SPI_Pin, pin(A1), pin(A2), pin(A3)
+	Serial.println(F("display ok"));
+}
+
+void Controller::initSensor() {
+	stepcount = new StepCount();//use SPI_Pin, pin(10)
+	Serial.println(F("ADXL345 ok"));
+}
+
+void Controller::clearView() {
+	view->clearDisplay();
+}
+
+std::vector<int8_t> Controller::getOperation() {
 	buttonNumber.clear();
-	uint8_t offsetNumber = buttons[0]->getPin();
 	for (auto itr : buttons) {
 		if (itr->getValue() == HIGH) {
 			if(!buttonFlag) {

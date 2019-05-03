@@ -10,11 +10,12 @@ class StatusMode : public Mode {
 public:
 	StatusMode();
 	~StatusMode();
-	uint8_t run(std::vector<uint8_t> oprnNum);
+	int8_t run(std::vector<int8_t> oprnNum);
 
 private:
-	uint8_t selectPointer;
+	int8_t selectScreen;
 	void viewStatus();
+
 
 };
 #endif

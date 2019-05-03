@@ -2,37 +2,37 @@
 
 StatusMode::StatusMode() {
   currentMode = STATUS;
-  selectPointer = 0;
+  selectScreen = 0;
 }
 
 StatusMode::~StatusMode() {
 
 }
 
-uint8_t StatusMode::run(std::vector<uint8_t> oprnNum) {
+int8_t StatusMode::run(std::vector<int8_t> oprnNum) {
 
   //view status
   viewStatus();
 
   for(auto itr : oprnNum) {
     switch (itr) {
-      case 0://move next pointer
-      if (selectPointer >= STATUS_MAX_NUM) {
-        selectPointer = 0;
+      case 0://move next Screen
+      if (selectScreen > STATUS_MAX_NUM) {
+        selectScreen = 0;
       }
       else {
-        selectPointer++;
+        selectScreen++;
       }
       break;
       case 1://decide
       return HOME;
       break;
-      case 2://move back pointer
-      if(selectPointer == 0) {
-        //max selectPointer num
+      case 2://move back Screen
+      if(selectScreen == 0) {
+        selectScreen = STATUS_MAX_NUM;
       }
       else {
-        selectPointer--;
+        selectScreen--;
       }
       break;
       default:
@@ -42,7 +42,12 @@ uint8_t StatusMode::run(std::vector<uint8_t> oprnNum) {
 }
 
 void StatusMode::viewStatus() {
-  uint8_t x = 10;
-  uint8_t y = 10;
-  cntl -> view -> drawText(x, y, "Test");
+  // int8_t x = 10;
+  // int8_t y = 10;
+  // String str = "Test";
+  // str.concat(selectScreen);
+  // cntl -> view -> drawText(x, y, str);
+  //
+  // //draw statusScreen[selectScreen]
+
 }

@@ -1,14 +1,13 @@
 #ifndef MODE_H_INCLUDE
 #define MODE_H_INCLUDE
 
-#define DEBUG 0
-#define HOME 1
-#define SELECT 2
-#define STATUS 3
-#define MEAL 4
+#define DEBUG -1
+#define HOME 0
+#define STATUS 1
+#define MEAL 2
+#define SETTING 3
 
 #include "controller.h"
-// #include "StandardCplusplus.h"//Writing on top of "SPI.h" result in an error
 
 class Mode {
 
@@ -17,14 +16,16 @@ public:
 	~Mode();
 
 protected:
-	static Controller *cntl;
-	static uint8_t currentMode;
+	static Controller* cntl;
+	static int16_t viewWidth;
+	static int16_t viewHeight;
+	static int8_t currentMode;
 	static union Modes {
-		class DebugMode *DebugMode;
-		class HomeMode *HomeMode;
-		class SelectMode *SelectMode;
-		class StatusMode *StatusMode;
-		class MealMode *MealMode;
+		class DebugMode* DebugMode;
+		class HomeMode* HomeMode;
+		class StatusMode* StatusMode;
+		class MealMode* MealMode;
+		class SettingMode* SettingMode;
 		Modes() : DebugMode(NULL) {}
 		~Modes() {}
 	}modes;

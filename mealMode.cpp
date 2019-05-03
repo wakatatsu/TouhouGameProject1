@@ -8,6 +8,6 @@ MealMode::~MealMode() {
 
 }
 
-MealMode::run(std::vector<uint8_t> oprnNum) {
+MealMode::run(std::vector<int8_t> oprnNum) {
 
 }

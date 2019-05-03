@@ -4,20 +4,19 @@
 #include "mode.h"
 #include "debugMode.h"
 #include "homeMode.h"
-#include "selectMode.h"
 #include "statusMode.h"
 #include "mealMode.h"
 
 class ModeManage : public Mode {
 
 public:
-	ModeManage(Controller *cntlPointer);
+	ModeManage(Controller* cntlPointer);
 	void runOperation();
-	void sendOperation(std::vector<uint8_t> oprnNum);
+	void sendOperation(std::vector<int8_t> oprnNum);
 private:
-	void changeMode(uint8_t toMode);
+	void changeMode(int8_t toMode);
 	void deleatMode();
-	void createMode(uint8_t toMode);
+	void createMode(int8_t toMode);
 
 
 

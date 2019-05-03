@@ -5,8 +5,7 @@ Controller *cntl;
 ModeManage *mdmg;
 
 void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial.begin(9600);
   cntl = new Controller();
   mdmg = new ModeManage(cntl);
 
@@ -14,9 +13,9 @@ void setup() {
 
 void loop() {
 
-  cntl->updateView();//update display
-  cntl->updateStep();//update step
+  cntl->clearView();//update display
+  // cntl->updateStep();//update step
   mdmg->runOperation();//run operation
-
+  delay(100);
 
 }
