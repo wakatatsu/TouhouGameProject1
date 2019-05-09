@@ -13,17 +13,17 @@ public:
 	int8_t bitMapTest(std::vector<int8_t> oprnNum);
 	int8_t changeModeTest(std::vector<int8_t> oprnNum);
 	int8_t mp3Test(std::vector<int8_t> oprnNum);
-	int8_t testGame(std::vector<int8_t> oprnNum);
+	// int8_t testGame(std::vector<int8_t> oprnNum);
 
 private:
 	//variable used in testGame
-	static int8_t playerX;
-	static int8_t playerY;
-	static int8_t jumpFlag;
-	static int t;
-	int testNum;
-	int *ptr;
-	void jumpPlayer();
+	// static int8_t playerX;
+	// static int8_t playerY;
+	// static int8_t jumpFlag;
+	// static int t;
+	// int testNum;
+	int8_t testNum;
+	// void jumpPlayer();
 
 };
 #endif

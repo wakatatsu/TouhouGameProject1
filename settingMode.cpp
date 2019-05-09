@@ -6,7 +6,7 @@ SettingMode::SettingMode() {
 }
 
 SettingMode::~SettingMode() {
-
+  delete &selectPoint;
 }
 
 int8_t SettingMode::run(std::vector<int8_t> oprnNum) {

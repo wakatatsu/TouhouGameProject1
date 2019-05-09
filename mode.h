@@ -20,15 +20,6 @@ protected:
 	static int16_t viewWidth;
 	static int16_t viewHeight;
 	static int8_t currentMode;
-	static union Modes {
-		class DebugMode* DebugMode;
-		class HomeMode* HomeMode;
-		class StatusMode* StatusMode;
-		class MealMode* MealMode;
-		class SettingMode* SettingMode;
-		Modes() : DebugMode(NULL) {}
-		~Modes() {}
-	}modes;
 
 };
 #endif

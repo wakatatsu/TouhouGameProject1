@@ -26,6 +26,8 @@ class View {
 	typedef struct {
 		int8_t drawNumber;
 		std::vector<int8_t> drawData;
+		String strData;
+		int8_t *bitData;
 		uint16_t color;
 	}viewLogData;
 
@@ -36,7 +38,8 @@ public:
 	void clearDisplay();
 	template<class... A> std::vector<int8_t> inputParameter(A... args);
 	void inputLog(int8_t drawNumber, std::vector<int8_t> parameter, uint16_t color);
-
+	void inputLog(int8_t drawNumber, std::vector<int8_t> parameter, String strPtr, uint16_t color);
+	void inputLog(int8_t drawNumber, std::vector<int8_t> parameter, int8_t *bitData, uint16_t color);
 	void drawRect(int8_t x, int8_t y, int8_t w, int8_t h,
 		 uint16_t color, int8_t fillFlag);
 	void drawRoundRect(int8_t x, int8_t y, int8_t w, int8_t h, int8_t r,
@@ -49,7 +52,7 @@ public:
 	void drawPixel(int8_t x, int8_t y, uint16_t color);
 	void drawText(int8_t x, int8_t y, String text, uint16_t color);
 	void drawBitmap(int8_t x, int8_t y, int8_t w, int8_t h, int8_t *bitmap,
-		 uint16_t color, int8_t drawtype = 0);
+		 uint16_t color, int8_t drawtype);
 
 
 

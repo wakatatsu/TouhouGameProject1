@@ -9,7 +9,8 @@ Controller::Controller() {
 	initDisplay();
 	// initSensor();
 	// initDFPlayer();
-	Serial.println(F("Controller Initialized"));
+
+	// Serial.println(F("Controller Initialized"));
 }
 
 void Controller::initButton() {
@@ -19,22 +20,26 @@ void Controller::initButton() {
 	offsetNumber = buttons[0]->getPin();
 	buttonFlag = 0;
 	buttonCount = 0;
-	Serial.println(F("button ok"));
+
+	// Serial.println(F("button ok"));
 }
 
 void Controller::initDFPlayer() {
 	soundplayer = new DFPlayer();//use pin(8), pin(9)
-	Serial.println(F("DFPlayer ok"));
+
+	// Serial.println(F("DFPlayer ok"));
 }
 
 void Controller::initDisplay() {
 	view = new View();//use SPI_Pin, pin(A1), pin(A2), pin(A3)
-	Serial.println(F("display ok"));
+
+	// Serial.println(F("display ok"));
 }
 
 void Controller::initSensor() {
 	stepcount = new StepCount();//use SPI_Pin, pin(10)
-	Serial.println(F("ADXL345 ok"));
+	
+	// Serial.println(F("ADXL345 ok"));
 }
 
 void Controller::clearView() {

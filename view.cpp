@@ -47,10 +47,10 @@ void View::clearDisplay() {
 			drawPixel(itr.drawData[0], itr.drawData[2], WHITE);
 			break;
 			case 7:
-			// drawText(itr.drawData[0], itr.drawData[1], String, WHITE);
+			drawText(itr.drawData[0], itr.drawData[1], itr.strData, WHITE);
 			break;
 			case 8:
-			// drawBitmap(itr.drawData[0], itr.drawData[1], itr.drawData[2], itr.drawData[3], *bitmap, WHITE, itr.drawData[5]);
+			drawBitmap(itr.drawData[0], itr.drawData[1], itr.drawData[2], itr.drawData[3], itr.bitData, WHITE, itr.drawData[4]);
 			break;
 			defalt:
 			break;
@@ -73,6 +73,16 @@ void View::inputLog(int8_t drawNumber, std::vector<int8_t> parameter, uint16_t c
 	drawData.drawData = parameter;
 	drawData.color = color;
 	logData.push_back(drawData);
+}
+
+void View::inputLog(int8_t drawNumber, std::vector<int8_t> parameter, String strPtr, uint16_t color) {
+	drawData.strData = strPtr;
+	inputLog(drawNumber, parameter, color);
+}
+
+void View::inputLog(int8_t drawNumber, std::vector<int8_t> parameter, int8_t *bitData, uint16_t color) {
+	drawData.bitData = bitData;
+	inputLog(drawNumber, parameter, color);
 }
 
 void View::drawRect(int8_t x, int8_t y, int8_t w, int8_t h, uint16_t color, int8_t fillFlag) {
@@ -131,37 +141,41 @@ void View::drawText(int8_t x, int8_t y, String text, uint16_t color) {
 	//display.setTextColor(WHITE, BLACK);
 	display.setCursor(x, y);
 	display.println(text);
-	// inputLog(7, inputParameter(x, y, text), color);
+	inputLog(7, inputParameter(x, y), text, color);
+
 }
 
-void View::drawBitmap(int8_t x, int8_t y, int8_t w, int8_t h, int8_t *bitmap, uint16_t color, int8_t drawtype = 0) {
+void View::drawBitmap(int8_t x, int8_t y, int8_t w, int8_t h, int8_t *bitmap, uint16_t color, int8_t drawtype) {
 	int count = 0;
 	int8_t data = 0;
+	int8_t scale = 2;
 	for (int8_t i = 0; i < h; i++) {
 		for (int8_t j = 0; j < w; j++) {
 			data = pgm_read_byte(bitmap + count);
 			if (data == 1) {
 				switch(drawtype) {
 					case 0:
-					drawPixel(x + j, y + i, color);//default
+					// display.drawPixel(x + j, y + i, color);//default
+					display.fillRect(x + j*scale, y + i*scale, scale, scale, color);
 					break;
 					case 1:
-					drawPixel(x + ((w-1)-j), y + i, color);//left and right reverse
+					// display.drawPixel(x + ((w-1)-j), y + i, color);//left and right reverse
+					display.fillRect(x + ((w-1)-j*scale), y + i*scale, scale, scale, color);
 					break;
 					case 2:
-					drawPixel(x + j, y + ((h-1)-i), color);//up and down reverse
+					// display.drawPixel(x + j, y + ((h-1)-i), color);//up and down reverse
+					display.fillRect(x + j*scale, y + ((h-1)-i*scale), scale, scale, color);
 					break;
 					case 3:
-					drawPixel(x + ((w-1)-j), y + ((h-1)-i), color);//up,down,left and right reverse
+					// display.drawPixel(x + ((w-1)-j), y + ((h-1)-i), color);//up,down,left and right reverse
+					display.fillRect(x + ((w-1)-j*scale), y + ((h-1)-i*scale), scale, scale, color);
 					break;
 					default:
 					break;
 				}
-
-
 			}
 			count++;
 		}
 	}
-	// inputLog(8, inputParameter(x, y, w, h, *bitmap, drawtype), color);
+	inputLog(8, inputParameter(x, y, w, h, drawtype), bitmap, color);
 }

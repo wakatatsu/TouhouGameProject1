@@ -1,12 +1,14 @@
 #include "modeManage.h"
 
 ModeManage::ModeManage(Controller *cntlPointer) {
+	//static value init
 	cntl = cntlPointer;
 	viewWidth = cntl->view->width();
 	viewHeight = cntl->view->height();
-  // new(&modes.HomeMode) HomeMode();
-	new(&modes.DebugMode) DebugMode();
-	Serial.println(F("ModeManage Initialized"));
+	// testDebug = new DebugMode();
+	testHome = new HomeMode();
+
+	// Serial.println(F("ModeManage Initialized"));
 }
 
 void ModeManage::runOperation() {
@@ -14,25 +16,20 @@ void ModeManage::runOperation() {
 }
 
 void ModeManage::sendOperation(std::vector<int8_t> oprnNum) {
-
-	// Serial.println(currentMode);
-
 	switch(currentMode) {
 		case DEBUG:
-		changeMode(modes.DebugMode->displayTest(oprnNum));
-		// changeMode(modes.DebugMode->testGame(oprnNum));
+		changeMode(testDebug->displayTest(oprnNum));
 		break;
 		case HOME:
-		changeMode(modes.HomeMode->run(oprnNum));
+		changeMode(testHome->run(oprnNum));
 		break;
 		case STATUS:
-		changeMode(modes.StatusMode->run(oprnNum));
+		changeMode(testStatus->run(oprnNum));
 		break;
 		case MEAL:
-		changeMode(modes.MealMode->run(oprnNum));
+		changeMode(testMeal->run(oprnNum));
 		break;
-		//case SETTING:
-		//changeMode(modes.SettingMode->run(oprnNum));
+		// case SETTING:
 		default:
 		break;
 	}
@@ -48,16 +45,16 @@ void ModeManage::changeMode(int8_t toMode) {
 void ModeManage::deleatMode() {
 	switch(currentMode) {
 		case DEBUG:
-		modes.DebugMode->~DebugMode();
+		delete testDebug;
 		break;
 		case HOME:
-		modes.HomeMode->~HomeMode();
+		delete testHome;
 		break;
 		case STATUS:
-		modes.StatusMode->~StatusMode();
+		delete testStatus;
 		break;
 		case MEAL:
-		modes.MealMode->~MealMode();
+		delete testMeal;
 		break;
 		default:
 		break;
@@ -67,16 +64,16 @@ void ModeManage::deleatMode() {
 void ModeManage::createMode(int8_t toMode) {
 	switch(toMode) {
 		case DEBUG:
-		new(&modes.DebugMode) DebugMode();
+		testDebug = new DebugMode();
 		break;
 		case HOME:
-		new(&modes.HomeMode) HomeMode();
+		testHome = new HomeMode();
 		break;
 		case STATUS:
-		new(&modes.StatusMode) StatusMode();
+		testStatus = new StatusMode();
 		break;
 		case MEAL:
-		new(&modes.MealMode) MealMode();
+		testMeal = new MealMode();
 		break;
 		default:
 		break;

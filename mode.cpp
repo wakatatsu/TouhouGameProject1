@@ -9,7 +9,6 @@ Controller* Mode::cntl;
 int16_t Mode::viewWidth;
 int16_t Mode::viewHeight;
 int8_t Mode::currentMode;
-Mode::Modes Mode::modes;
 
 Mode::Mode() {
 
