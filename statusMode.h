@@ -14,7 +14,9 @@ public:
 
 private:
 	int8_t selectScreen;
-	void viewStatus();
+	int8_t selectPointX;
+	int8_t selectPointY;
+	void viewStatus(int8_t selectScreen);
 
 
 };

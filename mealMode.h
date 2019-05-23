@@ -8,7 +8,7 @@ class MealMode : public Mode {
 public:
 	MealMode();
 	~MealMode();
-	run(std::vector<int8_t> oprnNum);
+	int8_t run(std::vector<int8_t> oprnNum);
 
 protected:
 

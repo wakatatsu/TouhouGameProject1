@@ -58,7 +58,7 @@ public:
 
 private:
 	// Adafruit_PCD8544 display = Adafruit_PCD8544(A1, A2, A3);//Adafruit_PCD8544(DC, CS, RST)
-	Adafruit_ST7735 display = Adafruit_ST7735(10, 8, 9);
+	Adafruit_ST7735 display = Adafruit_ST7735(7, 8, 9);//Adafruit_ST7735(CS, RS, RST)
 	viewLogData drawData;
 	std::vector<viewLogData> logData;
 

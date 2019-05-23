@@ -11,13 +11,11 @@ HomeMode::HomeMode() {
 }
 
 HomeMode::~HomeMode() {
-  delete ptr;
 }
 
 int8_t HomeMode::run(std::vector<int8_t> oprnNum) {
   randomMove();
-  selectMode(oprnNum);
-  return HOME;
+  return selectMode(oprnNum);
 }
 
 void HomeMode::randomMove() {
@@ -49,7 +47,7 @@ void HomeMode::randomMove() {
   if(drawX <= 0) {drawX = 0;}
 }
 
-void HomeMode::selectMode(std::vector<int8_t> oprnNum) {
+int8_t HomeMode::selectMode(std::vector<int8_t> oprnNum) {
   //draw icon of mode
   switch(selectModeIcon) {
     case 1://STATUS
@@ -85,8 +83,7 @@ void HomeMode::selectMode(std::vector<int8_t> oprnNum) {
       break;
       case 1://decide
       // cntl->soundplayer->playMP3(2);
-      // return selectModeIcon;
-      break;
+      return selectModeIcon;
       case 2://turn back icon
       // cntl->soundplayer-> playMP3(2);
       selectModeIcon--;
@@ -97,4 +94,5 @@ void HomeMode::selectMode(std::vector<int8_t> oprnNum) {
     if(selectModeIcon <= 0) {selectModeIcon = MAX_ICON_NUM;}
     else if(selectModeIcon > MAX_ICON_NUM) {selectModeIcon = 1;}
   }
+  return HOME;
 }

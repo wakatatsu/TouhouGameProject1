@@ -1,6 +1,7 @@
 #include "stepcount.h"
 
-StepCount::StepCount() {
+StepCount::StepCount() : count(0), laststate(true), state(false),
+ step(0), accel(0), total(0), threshold(0), hysteresis(0) {
   adxl345 = new ADXL345();
 }
 

@@ -6,7 +6,7 @@
 #include "homeMode.h"
 #include "statusMode.h"
 #include "mealMode.h"
-// #include "settingMode.h"
+#include "settingMode.h"
 
 class ModeManage : public Mode {
 
@@ -18,11 +18,11 @@ private:
 	void changeMode(int8_t toMode);
 	void deleatMode();
 	void createMode(int8_t toMode);
-	DebugMode *testDebug;
-	HomeMode *testHome;
-	StatusMode *testStatus;
-	MealMode *testMeal;
-	// SettingMode *testSetting;
+	DebugMode *debugMode;
+	HomeMode *homeMode;
+	StatusMode *statusMode;
+	MealMode *mealMode;
+	SettingMode *settingMode;
 
 
 

@@ -5,8 +5,8 @@ ModeManage::ModeManage(Controller *cntlPointer) {
 	cntl = cntlPointer;
 	viewWidth = cntl->view->width();
 	viewHeight = cntl->view->height();
-	// testDebug = new DebugMode();
-	testHome = new HomeMode();
+	// debugMode = new DebugMode();
+	homeMode = new HomeMode();
 
 	// Serial.println(F("ModeManage Initialized"));
 }
@@ -18,18 +18,19 @@ void ModeManage::runOperation() {
 void ModeManage::sendOperation(std::vector<int8_t> oprnNum) {
 	switch(currentMode) {
 		case DEBUG:
-		changeMode(testDebug->displayTest(oprnNum));
+		changeMode(debugMode->displayTest(oprnNum));
 		break;
 		case HOME:
-		changeMode(testHome->run(oprnNum));
+		changeMode(homeMode->run(oprnNum));
 		break;
 		case STATUS:
-		changeMode(testStatus->run(oprnNum));
+		changeMode(statusMode->run(oprnNum));
 		break;
 		case MEAL:
-		changeMode(testMeal->run(oprnNum));
+		changeMode(mealMode->run(oprnNum));
 		break;
-		// case SETTING:
+		case SETTING:
+		changeMode(settingMode->run(oprnNum));
 		default:
 		break;
 	}
@@ -45,17 +46,19 @@ void ModeManage::changeMode(int8_t toMode) {
 void ModeManage::deleatMode() {
 	switch(currentMode) {
 		case DEBUG:
-		delete testDebug;
+		delete debugMode;
 		break;
 		case HOME:
-		delete testHome;
+		delete homeMode;
 		break;
 		case STATUS:
-		delete testStatus;
+		delete statusMode;
 		break;
-		case MEAL:
-		delete testMeal;
-		break;
+		// case MEAL:
+		// delete mealMode;
+		// break;
+		// case SETTING
+		// delete settingMode;
 		default:
 		break;
 	}
@@ -64,17 +67,20 @@ void ModeManage::deleatMode() {
 void ModeManage::createMode(int8_t toMode) {
 	switch(toMode) {
 		case DEBUG:
-		testDebug = new DebugMode();
+		debugMode = new DebugMode();
 		break;
 		case HOME:
-		testHome = new HomeMode();
+		homeMode = new HomeMode();
 		break;
 		case STATUS:
-		testStatus = new StatusMode();
+		statusMode = new StatusMode();
 		break;
-		case MEAL:
-		testMeal = new MealMode();
-		break;
+		// case MEAL:
+		// mealMode = new MealMode();
+		// break;
+		// case SETTING:
+		// settingMode = new SettingMode();
+		// break;
 		default:
 		break;
 	}

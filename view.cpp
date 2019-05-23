@@ -8,6 +8,7 @@ View::View() {
 	// display.clearDisplay();
 	display.initR(INITR_144GREENTAB);
 	display.fillScreen(WHITE);
+	display.setRotation(display.getRotation()+2);//flip upside down
 }
 
 int16_t View::width() {

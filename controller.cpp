@@ -24,22 +24,22 @@ void Controller::initButton() {
 	// Serial.println(F("button ok"));
 }
 
-void Controller::initDFPlayer() {
-	soundplayer = new DFPlayer();//use pin(8), pin(9)
-
-	// Serial.println(F("DFPlayer ok"));
-}
-
 void Controller::initDisplay() {
-	view = new View();//use SPI_Pin, pin(A1), pin(A2), pin(A3)
+	view = new View();//use SPI_Pin, pin(), pin(), pin()
 
 	// Serial.println(F("display ok"));
 }
 
 void Controller::initSensor() {
 	stepcount = new StepCount();//use SPI_Pin, pin(10)
-	
+
 	// Serial.println(F("ADXL345 ok"));
+}
+
+void Controller::initDFPlayer() {
+	soundplayer = new DFPlayer();//use pin(8), pin(9)
+
+	// Serial.println(F("DFPlayer ok"));
 }
 
 void Controller::clearView() {
